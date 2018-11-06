@@ -1,0 +1,31 @@
+<div class="padding-bottom-45">
+
+  <h3>
+    <span>新增组织架构</span>
+  </h3>
+
+
+  <form nz-form #validateForm="ngForm" (ngSubmit)="save()" *ngIf="organizationUnit">
+    <nz-form-item>
+      <nz-form-control nzHasFeedback>
+        <input nz-input name="displayName" #displayName="ngModel" [(ngModel)]="organizationUnit.displayName"
+          placeholder="displayName" required>
+        <nz-form-explain *ngIf="displayName.control.dirty">
+          <ng-container *ngIf="displayName.control.hasError('required')">displayName不能为空</ng-container>
+        </nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- 功能按钮 -->
+    <div class="custom-modal-footer">
+      <div class="custom-modal-footter-group">
+        <button nz-button type="button" [disabled]="saving" (click)="close()">
+          {{l("Cancel")}}
+        </button>
+        <button nz-button [nzType]="'primary'" type="submit" [disabled]="!validateForm.valid||saving">
+          {{l("Save")}}
+        </button>
+      </div>
+    </div>
+
+  </form>
+</div>

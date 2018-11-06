@@ -1,0 +1,34 @@
+<page-header ngtitle="登录记录"></page-header>
+
+
+<nz-card [nzExtra]="extraTpl">
+
+  <ng-template #extraTpl>
+    <button nz-button (click)="refresh()" nzShape="circle">
+      <i class="anticon anticon-reload"></i>
+    </button>
+  </ng-template>
+
+
+  <nz-table #ajaxTable nzShowSizeChanger [nzData]="dataList" [nzTotal]="totalItems" [(nzPageIndex)]="pageNumber"
+    [(nzPageSize)]="pageSize" [nzLoading]="isTableLoading" (nzPageIndexChange)="refresh()" (nzPageSizeChange)="refresh()"
+    [nzFrontPagination]="false">
+    <thead>
+      <tr>
+        <th>{{l("result")}}</th>
+        <th>{{l("browserInfo")}}</th>
+        <th>{{l("userNameOrEmailAddress")}}</th>
+        <th>{{l("creationTime")}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of ajaxTable.data">
+        <td>{{item.result}}</td>
+        <td>{{item.browserInfo}}</td>
+        <td>{{item.userNameOrEmailAddress}}</td>
+        <td>{{item.creationTime}}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+
+</nz-card>

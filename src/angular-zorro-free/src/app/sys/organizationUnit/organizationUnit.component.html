@@ -1,0 +1,82 @@
+<page-header ngtitle="组织架构"></page-header>
+<div nz-row>
+  <div nz-col nzSpan="12">
+    <nz-card [nzExtra]="extraTpl">
+      <div nz-row>
+        <div nz-col nzSpan='21'>
+          <h2>组织架构</h2>
+        </div>
+        <div nz-col nzSpan='3'>
+          <button nz-button (click)="refresh()" nzShape="circle">
+            <i class="anticon anticon-reload"></i>
+          </button>
+          <button nz-button (click)="createChild()" nzShape="circle" nzType="primary">
+            <i class="anticon anticon-plus"></i>
+          </button>
+          <button nz-button (click)="lookup()" nzShape="circle" nzType="primary">
+            <i class="anticon anticon-plus"></i>22222
+          </button>
+        </div>
+      </div>
+      <nz-tree [nzData]="organizationUnitList" nzMultiple="true" (nzClick)="activeNode($event)" nzExpandAll="true"
+        (nzContextMenu)="show($event)" #treeCom>
+        <ng-template #contextTemplate>
+          <ul nz-menu nzInDropDown>
+            <li nz-menu-item (click)="createChild('file')">新增子节点</li>
+            <li nz-menu-item (click)="editChild('folder')">修改</li>
+          </ul>
+        </ng-template>
+        <ng-template #nzTreeTemplate let-node>
+          <span class="custom-node" [class.active]="activedNode?.key===node.key">
+            <span *ngIf="true" (contextmenu)="contextMenu($event,contextTemplate)">
+              <i class="anticon" class="anticon anticon-team" (click)="openFolder(node)"></i>
+              <span class="folder-name">{{node.title}}</span>
+              <span class="folder-desc">{{node?.origin?.author | lowercase}}</span>
+            </span>
+            <span *ngIf="false">
+              <i class="anticon anticon-file"></i>
+              <span class="file-name">{{node.title}}</span>
+              <span class="file-desc">{{node?.origin?.author | lowercase}}</span>
+            </span>
+          </span>
+        </ng-template>
+      </nz-tree>
+    </nz-card>
+  </div>
+  <div nz-col nzSpan="12">
+    <nz-card>
+      <div nz-row>
+        <div nz-col nzSpan='21'>
+          <h2>成员</h2>
+        </div>
+        <div nz-col nzSpan='3'>
+          <button nz-button (click)="refresh()" nzShape="circle">
+            <i class="anticon anticon-reload"></i>
+          </button>
+          <button nz-button (click)="create()" nzShape="circle" nzType="primary">
+            <i class="anticon anticon-plus"></i>
+          </button>
+        </div>
+      </div>
+      <nz-table #ajaxTable nzShowSizeChanger [nzData]="dataList" [nzTotal]="totalItems" [(nzPageIndex)]="pageNumber"
+        [(nzPageSize)]="pageSize" [nzLoading]="isTableLoading" (nzPageIndexChange)="refresh()" (nzPageSizeChange)="refresh()"
+        [nzFrontPagination]="false">
+        <thead>
+          <tr>
+            <th>{{l("result")}}</th>
+            <th>{{l("userNameOrEmailAddress")}}</th>
+            <th>{{l("creationTime")}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of ajaxTable.data">
+            <td>{{item.result}}</td>
+            <td>{{item.userNameOrEmailAddress}}</td>
+            <td>{{item.creationTime | date }}</td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </nz-card>
+
+  </div>
+</div>

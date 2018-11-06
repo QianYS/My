@@ -1,0 +1,33 @@
+<div class="padding-bottom-45">
+
+  <h3>
+    <span>{{options.title}}</span>
+  </h3>
+
+  <nz-table #ajaxTable nzShowSizeChanger [nzData]="dataList" [nzTotal]="totalItems" [(nzPageIndex)]="pageNumber"
+    [(nzPageSize)]="pageSize" [nzLoading]="isTableLoading" (nzPageIndexChange)="refresh()" (nzPageSizeChange)="refresh()"
+    [nzFrontPagination]="false">
+    <thead>
+      <tr>
+        <th>名称</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of ajaxTable.data">
+        <td>{{item.name}}</td>
+        <td>
+          <a (click)="edit(item)">选择</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+  <div class="custom-modal-footer">
+    <div class="custom-modal-footter-group">
+      <button nz-button type="button" [disabled]="saving" (click)="close()">
+        {{l("Cancel")}}
+      </button>
+    </div>
+  </div>
+
+</div>
