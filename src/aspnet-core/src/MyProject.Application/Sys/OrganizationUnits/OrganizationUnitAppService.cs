@@ -1,9 +1,12 @@
 ﻿using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
+using Abp.Authorization.Users;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
+using Abp.Linq.Extensions;
 using Abp.Organizations;
+using Microsoft.EntityFrameworkCore;
 using MyProject.Authorization;
 using MyProject.Sys.OrganizationUnits.Dto;
 using System;
@@ -17,14 +20,17 @@ namespace MyProject.Sys.OrganizationUnits
     public class OrganizationUnitAppService : ApplicationService, IOrganizationUnitAppService
     {
         private IRepository<OrganizationUnit, long> _organizationUnitRepository;
+        private IRepository<UserOrganizationUnit, long> _userOrganizationUnitRepository;
         private readonly OrganizationUnitManager _organizationUnitManager;
 
         public OrganizationUnitAppService(
             IRepository<OrganizationUnit, long> organizationUnitRepository,
+            IRepository<UserOrganizationUnit, long> userOrganizationUnitRepository,
             OrganizationUnitManager organizationUnitManager
             )
         {
             _organizationUnitRepository = organizationUnitRepository;
+            _userOrganizationUnitRepository = userOrganizationUnitRepository;
             _organizationUnitManager = organizationUnitManager;
         }
         
@@ -84,6 +90,15 @@ namespace MyProject.Sys.OrganizationUnits
         public async Task<OrganizationUnitDto> GetOrganizationUnitByCode(string code)
         {
             return _organizationUnitRepository.GetAll().Where(p => p.Code == code).FirstOrDefault().MapTo<OrganizationUnitDto>();
+        }
+
+        public async Task GetUserByOrganizationUnit(GetUserByOrganizationUnitInput input)
+        {
+            OrganizationUnit organizationUnit = _organizationUnitRepository.GetAll().Where(p => p.Code == input.Code).FirstOrDefault();
+            if (organizationUnit!=null)
+            {
+                
+            }
         }
     }
 }

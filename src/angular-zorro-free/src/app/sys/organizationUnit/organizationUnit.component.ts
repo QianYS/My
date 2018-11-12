@@ -27,16 +27,17 @@ import { LookupModelComponent } from '@app/layout/common/lookupModel/lookupModel
   styles: [],
 })
 export class OrganizationUnitComponent extends PagedListingComponentBase<
-  UserDto
+UserDto
 > {
   @ViewChild('treeCom')
   treeCom: NzTreeComponent;
   dropdown: NzDropdownContextComponent;
   // actived node
-  activedNode: NzTreeNode;
+  activedNode: NzTreeNode = null;
   organizationUnitList: NzTreeNode[];
-  opj: {};
-  //nzDropdownService = this.nzDropdownService;
+  requestThis: PagedRequestDto;
+  pageNumberThis: number;
+  finishedCallbackThis: Function;
   constructor(
     injector: Injector,
     private _organizationUnitService: OrganizationUnitServiceProxy,
@@ -48,17 +49,10 @@ export class OrganizationUnitComponent extends PagedListingComponentBase<
   protected fetchDataList(
     request: PagedRequestDto,
     pageNumber: number,
-    finishedCallback: Function,
-  ): void {
-    // this._userService
-    //   .getAll(request.skipCount, request.maxResultCount)
-    //   .finally(() => {
-    //     finishedCallback();
-    //   })
-    //   .subscribe((result: PagedResultDtoOfUserDto) => {
-    //     this.dataList = result.items;
-    //     this.totalItems = result.totalCount;
-    //   });
+    finishedCallback: Function, ): void {
+    this.requestThis = request;
+    this.pageNumberThis = pageNumber;
+    this.finishedCallbackThis = finishedCallback;
     this._organizationUnitService
       .getAllTree()
       .subscribe((organizationUnit: OrganizationUnitTreeDto[]) => {
@@ -71,20 +65,25 @@ export class OrganizationUnitComponent extends PagedListingComponentBase<
           });
         });
         this.organizationUnitList = array;
+        this.finishedCallbackThis();
       });
   }
 
-  // activeNode(data: NzFormatEmitEvent): void {
-  //   console.log(data);
-  //   if (this.activedNode) {
-  //     // delete selectedNodeList(u can do anything u want)
-  //     this.treeCom.nzTreeService.setSelectedNodeList(this.activedNode);
-  //   }
-  //   data.node.isSelected = true;
-  //   this.activedNode = data.node;
-  //   // add selectedNodeList
-  //   this.treeCom.nzTreeService.setSelectedNodeList(this.activedNode);
-  // }
+  activeNode(data: NzFormatEmitEvent): void {
+    this.activedNode = data.node;
+    this._userService
+      .getAll(this.requestThis.skipCount, this.requestThis.maxResultCount)
+      .finally(() => {
+        this.finishedCallbackThis();
+      })
+      .subscribe((result: PagedResultDtoOfUserDto) => {
+        //console.log(result);
+        this.dataList = result.items;
+        this.totalItems = result.totalCount;
+      });
+    // add selectedNodeList
+    //this.treeCom.nzTreeService.setSelectedNodeList(this.activedNode);
+  }
 
   show(data: NzFormatEmitEvent): void {
     this.activedNode = data.node;
@@ -95,11 +94,16 @@ export class OrganizationUnitComponent extends PagedListingComponentBase<
   }
 
   createChild(): void {
-    console.log(this.activedNode);
+    let key: string = "";
+    if (this.activedNode) {
+      key = this.activedNode.key;
+    } else {
+      key = null;
+    }
     this.modalHelper
       .open(
         CreateOrganizationUnitComponent,
-        { key: this.activedNode.key },
+        { key: key },
         'md',
         {
           nzMask: true,
@@ -107,9 +111,10 @@ export class OrganizationUnitComponent extends PagedListingComponentBase<
         },
       )
       .subscribe(isSave => {
-        console.log(isSave);
+        this.activedNode = null;
         if (isSave) {
           this.refresh();
+          this.nzDropdownService.close();
         }
       });
   }
