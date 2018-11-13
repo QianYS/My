@@ -6,9 +6,12 @@ using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
 using Abp.Organizations;
+using Abp.UI;
 using Microsoft.EntityFrameworkCore;
 using MyProject.Authorization;
+using MyProject.Authorization.Users;
 using MyProject.Sys.OrganizationUnits.Dto;
+using MyProject.Users.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,16 +22,19 @@ namespace MyProject.Sys.OrganizationUnits
 {
     public class OrganizationUnitAppService : ApplicationService, IOrganizationUnitAppService
     {
+        private IRepository<User, long> _userRepository;
         private IRepository<OrganizationUnit, long> _organizationUnitRepository;
         private IRepository<UserOrganizationUnit, long> _userOrganizationUnitRepository;
         private readonly OrganizationUnitManager _organizationUnitManager;
 
         public OrganizationUnitAppService(
+            IRepository<User, long> userRepository,
             IRepository<OrganizationUnit, long> organizationUnitRepository,
             IRepository<UserOrganizationUnit, long> userOrganizationUnitRepository,
             OrganizationUnitManager organizationUnitManager
             )
         {
+            _userRepository = userRepository;
             _organizationUnitRepository = organizationUnitRepository;
             _userOrganizationUnitRepository = userOrganizationUnitRepository;
             _organizationUnitManager = organizationUnitManager;
@@ -92,12 +98,28 @@ namespace MyProject.Sys.OrganizationUnits
             return _organizationUnitRepository.GetAll().Where(p => p.Code == code).FirstOrDefault().MapTo<OrganizationUnitDto>();
         }
 
-        public async Task GetUserByOrganizationUnit(GetUserByOrganizationUnitInput input)
+        /// <summary>
+        /// 根据组织架构Code获取用户
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public async Task<PagedResultDto<UserDto>> GetUserByOrganizationUnit(GetUserByOrganizationUnitInput input)
         {
             OrganizationUnit organizationUnit = _organizationUnitRepository.GetAll().Where(p => p.Code == input.Code).FirstOrDefault();
-            if (organizationUnit!=null)
+            if (organizationUnit != null)
             {
-                
+                var query = from a in _userOrganizationUnitRepository.GetAll()
+                            join b in _userRepository.GetAll()
+                            on a.UserId equals b.Id
+                            where a.Id == organizationUnit.Id
+                            select b;
+                var count = query.Count();
+                var list = query.ToList().MapTo<List<UserDto>>();
+                return new PagedResultDto<UserDto>(count, list);
+            }
+            else
+            {
+                throw new UserFriendlyException("组织架构信息丢失");
             }
         }
     }
