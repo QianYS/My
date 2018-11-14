@@ -17,6 +17,7 @@ using MyProject.Configuration;
 using MyProject.Identity;
 
 using Abp.AspNetCore.SignalR.Hubs;
+using System.IO;
 
 namespace MyProject.Web.Host.Startup
 {
@@ -77,6 +78,13 @@ namespace MyProject.Web.Host.Startup
                 });
                 // Assign scope requirements to operations based on AuthorizeAttribute
                 options.OperationFilter<SecurityRequirementsOperationFilter>();
+
+                //添加读取注释服务
+                var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+                var commentsFileName = "MyProject.Application.xml";
+                var commentsFile = Path.Combine(baseDirectory, commentsFileName);
+                options.IncludeXmlComments(commentsFile);
             });
 
             // Configure Abp and Dependency Injection

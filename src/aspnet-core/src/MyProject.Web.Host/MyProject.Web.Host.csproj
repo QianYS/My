@@ -10,9 +10,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="App_Data\Logs\**" />
+    <Compile Remove="bin\**" />
     <Content Remove="App_Data\Logs\**" />
+    <Content Remove="bin\**" />
     <EmbeddedResource Remove="App_Data\Logs\**" />
+    <EmbeddedResource Remove="bin\**" />
     <None Remove="App_Data\Logs\**" />
+    <None Remove="bin\**" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\swagger\ui\index.html" />

@@ -20,23 +20,37 @@ using System.Threading.Tasks;
 
 namespace MyProject.Sys.OrganizationUnits
 {
+    /// <summary>
+    /// 组织架构接口实现
+    /// </summary>
     public class OrganizationUnitAppService : ApplicationService, IOrganizationUnitAppService
     {
         private IRepository<User, long> _userRepository;
         private IRepository<OrganizationUnit, long> _organizationUnitRepository;
         private IRepository<UserOrganizationUnit, long> _userOrganizationUnitRepository;
+        private readonly UserManager _userManager;
         private readonly OrganizationUnitManager _organizationUnitManager;
 
+        /// <summary>
+        /// 组织架构依赖注入
+        /// </summary>
+        /// <param name="userRepository"></param>
+        /// <param name="organizationUnitRepository"></param>
+        /// <param name="userOrganizationUnitRepository"></param>
+        /// <param name="userManager"></param>
+        /// <param name="organizationUnitManager"></param>
         public OrganizationUnitAppService(
             IRepository<User, long> userRepository,
             IRepository<OrganizationUnit, long> organizationUnitRepository,
             IRepository<UserOrganizationUnit, long> userOrganizationUnitRepository,
+            UserManager userManager,
             OrganizationUnitManager organizationUnitManager
             )
         {
             _userRepository = userRepository;
             _organizationUnitRepository = organizationUnitRepository;
             _userOrganizationUnitRepository = userOrganizationUnitRepository;
+            _userManager = userManager;
             _organizationUnitManager = organizationUnitManager;
         }
         
@@ -76,7 +90,8 @@ namespace MyProject.Sys.OrganizationUnits
         /// <returns></returns>
         public async Task<List<OrganizationUnitDto>> GetAll()
         {
-            return _organizationUnitRepository.GetAll().ToList().MapTo<List<OrganizationUnitDto>>();
+            var list = await _organizationUnitRepository.GetAll().ToListAsync();
+            return list.MapTo<List<OrganizationUnitDto>>();
         }
 
         /// <summary>
@@ -85,7 +100,8 @@ namespace MyProject.Sys.OrganizationUnits
         /// <returns></returns>
         public async Task<List<OrganizationUnitTreeDto>> GetAllTree()
         {
-            return _organizationUnitRepository.GetAll().ToList().MapTo<List<OrganizationUnitTreeDto>>().Where(p => p.ParentId == null).ToList();
+            var list = await _organizationUnitRepository.GetAll().ToListAsync();
+            return list.MapTo<List<OrganizationUnitTreeDto>>().Where(p => p.ParentId == null).ToList();
         }
 
         /// <summary>
@@ -95,7 +111,15 @@ namespace MyProject.Sys.OrganizationUnits
         /// <returns></returns>
         public async Task<OrganizationUnitDto> GetOrganizationUnitByCode(string code)
         {
-            return _organizationUnitRepository.GetAll().Where(p => p.Code == code).FirstOrDefault().MapTo<OrganizationUnitDto>();
+            OrganizationUnit organizationUnit = await _organizationUnitRepository.GetAll().Where(p => p.Code == code).FirstOrDefaultAsync();
+            if (organizationUnit == null)
+            {
+                throw new UserFriendlyException("组织架构信息丢失!");
+            }
+            else
+            {
+                return organizationUnit.MapTo<OrganizationUnitDto>();
+            }
         }
 
         /// <summary>
@@ -113,13 +137,55 @@ namespace MyProject.Sys.OrganizationUnits
                             on a.UserId equals b.Id
                             where a.Id == organizationUnit.Id
                             select b;
-                var count = query.Count();
-                var list = query.ToList().MapTo<List<UserDto>>();
-                return new PagedResultDto<UserDto>(count, list);
+                var count = await query.CountAsync();
+                var list = await query.ToListAsync();
+                return new PagedResultDto<UserDto>(count, list.MapTo<List<UserDto>>());
             }
             else
             {
-                throw new UserFriendlyException("组织架构信息丢失");
+                throw new UserFriendlyException("组织架构信息丢失!");
+            }
+        }
+
+        /// <summary>
+        /// 向组织单元添加用户
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public async Task AddUsers(UsersToOrganizationUnitInput input)
+        {
+            OrganizationUnit organizationUnit = _organizationUnitRepository.GetAll().Where(p => p.Code == input.OrganizationUnitCode).FirstOrDefault();
+            if (organizationUnit != null)
+            {
+                foreach (long userId in input.UserIds)
+                {
+                    await _userManager.AddToOrganizationUnitAsync(userId, organizationUnit.Id);
+                }
+            }
+            else
+            {
+                throw new UserFriendlyException("组织架构信息丢失!");
+            }
+        }
+
+        /// <summary>
+        /// 从组织单元删除用户
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public async Task RemoveUsers(UsersToOrganizationUnitInput input)
+        {
+            OrganizationUnit organizationUnit = _organizationUnitRepository.GetAll().Where(p => p.Code == input.OrganizationUnitCode).FirstOrDefault();
+            if (organizationUnit != null)
+            {
+                foreach (long userId in input.UserIds)
+                {
+                    await _userManager.RemoveFromOrganizationUnitAsync(userId, organizationUnit.Id);
+                }
+            }
+            else
+            {
+                throw new UserFriendlyException("组织架构信息丢失!");
             }
         }
     }
