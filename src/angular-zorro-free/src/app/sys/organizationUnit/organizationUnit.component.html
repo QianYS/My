@@ -29,7 +29,7 @@
         <ng-template #nzTreeTemplate let-node>
           <span class="custom-node" [class.active]="activedNode?.key===node.key">
             <span *ngIf="true" (contextmenu)="contextMenu($event,contextTemplate)">
-              <i class="anticon" class="anticon anticon-team" (click)="openFolder(node)"></i>
+              <i class="anticon" class="anticon anticon-team"></i>
               <span class="folder-name">{{node.title}}</span>
               <span class="folder-desc">{{node?.origin?.author | lowercase}}</span>
             </span>
@@ -63,16 +63,18 @@
         [nzFrontPagination]="false">
         <thead>
           <tr>
-            <th>{{l("result")}}</th>
-            <th>{{l("userNameOrEmailAddress")}}</th>
-            <th>{{l("creationTime")}}</th>
+            <th>用户名</th>
+            <th>姓名</th>
+            <th>操作</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let item of ajaxTable.data">
-            <td>{{item.result}}</td>
-            <td>{{item.userNameOrEmailAddress}}</td>
-            <td>{{item.creationTime | date }}</td>
+            <td>{{item.userName}}</td>
+            <td>{{item.name}}</td>
+            <td>
+              <button nz-button nzType="danger" (click)="removeUser(item.userId,item.organizationUnitCode)">移除</button>
+            </td>
           </tr>
         </tbody>
       </nz-table>

@@ -52,7 +52,7 @@ namespace MyProject.Sys.OrganizationUnits
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        Task<PagedResultDto<UserDto>> GetUserByOrganizationUnit(GetUserByOrganizationUnitInput input);
+        Task<PagedResultDto<OrganizationUnitUserDto>> GetUserByOrganizationUnit(GetUserByOrganizationUnitInput input);
 
         /// <summary>
         /// 向组织单元添加用户

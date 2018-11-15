@@ -6,9 +6,8 @@ import {
 import {
   OrganizationUnitServiceProxy,
   OrganizationUnitTreeDto,
-  UserServiceProxy,
-  UserDto,
-  PagedResultDtoOfUserDto,
+  PagedResultDtoOfOrganizationUnitUserDto,
+  OrganizationUnitUserDto,
 } from '@shared/service-proxies/service-proxies';
 import {
   NzDropdownContextComponent,
@@ -27,7 +26,7 @@ import { LookupModelComponent } from '@app/layout/common/lookupModel/lookupModel
   styles: [],
 })
 export class OrganizationUnitComponent extends PagedListingComponentBase<
-UserDto
+  OrganizationUnitUserDto
 > {
   @ViewChild('treeCom')
   treeCom: NzTreeComponent;
@@ -40,8 +39,7 @@ UserDto
   finishedCallbackThis: Function;
   constructor(
     injector: Injector,
-    private _organizationUnitService: OrganizationUnitServiceProxy,
-    private _userService: UserServiceProxy,
+    private _organizationUnitService: OrganizationUnitServiceProxy, //private _userService: UserServiceProxy,
   ) {
     super(injector);
   }
@@ -49,7 +47,8 @@ UserDto
   protected fetchDataList(
     request: PagedRequestDto,
     pageNumber: number,
-    finishedCallback: Function, ): void {
+    finishedCallback: Function,
+  ): void {
     this.requestThis = request;
     this.pageNumberThis = pageNumber;
     this.finishedCallbackThis = finishedCallback;
@@ -71,13 +70,18 @@ UserDto
 
   activeNode(data: NzFormatEmitEvent): void {
     this.activedNode = data.node;
-    this._userService
-      .getAll(this.requestThis.skipCount, this.requestThis.maxResultCount)
+    this._organizationUnitService
+      .getUserByOrganizationUnit(
+        this.activedNode.key,
+        this.requestThis.skipCount,
+        this.requestThis.maxResultCount,
+      )
       .finally(() => {
         this.finishedCallbackThis();
       })
-      .subscribe((result: PagedResultDtoOfUserDto) => {
-        //console.log(result);
+      .subscribe((result: PagedResultDtoOfOrganizationUnitUserDto) => {
+        console.log(result);
+        this.activedNode = null;
         this.dataList = result.items;
         this.totalItems = result.totalCount;
       });
@@ -94,22 +98,17 @@ UserDto
   }
 
   createChild(): void {
-    let key: string = "";
+    let key: string = '';
     if (this.activedNode) {
       key = this.activedNode.key;
     } else {
       key = null;
     }
     this.modalHelper
-      .open(
-        CreateOrganizationUnitComponent,
-        { key: key },
-        'md',
-        {
-          nzMask: true,
-          nzClosable: false,
-        },
-      )
+      .open(CreateOrganizationUnitComponent, { key: key }, 'md', {
+        nzMask: true,
+        nzClosable: false,
+      })
       .subscribe(isSave => {
         this.activedNode = null;
         if (isSave) {
@@ -118,7 +117,12 @@ UserDto
         }
       });
   }
-
+  removeUser(userId: number, organizationUnitCode: string): void {
+    //alert(id);
+    //console.log('userId:' + userId);
+    //console.log('organizationUnitId:' + organizationUnitId);
+    this._organizationUnitService.removeUsers([userId], organizationUnitCode);
+  }
   // lookup(): void {
   //   this.modalHelper
   //     .open(

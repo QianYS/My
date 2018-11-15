@@ -220,6 +220,7 @@ export class LoginAttemptServiceProxy {
     }
 
     /**
+     * 获取列表页内容
      * @param filter (optional) 
      * @param skipCount (optional) 
      * @param maxResultCount (optional) 
@@ -293,7 +294,8 @@ export class OrganizationUnitServiceProxy {
     }
 
     /**
-     * @param input (optional) 
+     * 新增组织单元
+     * @param input (optional) MyProject.Sys.OrganizationUnits.Dto.CreateOrUpdateOrganizationUnitInput
      * @return Success
      */
     create(input: CreateOrUpdateOrganizationUnitInput | null | undefined): Observable<OrganizationUnitDto> {
@@ -349,7 +351,8 @@ export class OrganizationUnitServiceProxy {
     }
 
     /**
-     * @param input (optional) 
+     * 更新组织单元
+     * @param input (optional) MyProject.Sys.OrganizationUnits.Dto.CreateOrUpdateOrganizationUnitInput
      * @return Success
      */
     update(input: CreateOrUpdateOrganizationUnitInput | null | undefined): Observable<OrganizationUnitDto> {
@@ -405,6 +408,7 @@ export class OrganizationUnitServiceProxy {
     }
 
     /**
+     * 获取全部组织架构（非树结构）
      * @return Success
      */
     getAll(): Observable<OrganizationUnitDto[]> {
@@ -461,6 +465,7 @@ export class OrganizationUnitServiceProxy {
     }
 
     /**
+     * 获取全部组织架构（树结构）
      * @return Success
      */
     getAllTree(): Observable<OrganizationUnitTreeDto[]> {
@@ -517,6 +522,7 @@ export class OrganizationUnitServiceProxy {
     }
 
     /**
+     * 获取组织架构By Code
      * @param code (optional) 
      * @return Success
      */
@@ -569,6 +575,180 @@ export class OrganizationUnitServiceProxy {
             }));
         }
         return _observableOf<OrganizationUnitDto>(<any>null);
+    }
+
+    /**
+     * 根据组织架构Code获取用户
+     * @param code 组织架构编号
+     * @param skipCount (optional) 
+     * @param maxResultCount (optional) 
+     * @return Success
+     */
+    getUserByOrganizationUnit(code: string, skipCount: number | null | undefined, maxResultCount: number | null | undefined): Observable<PagedResultDtoOfOrganizationUnitUserDto> {
+        let url_ = this.baseUrl + "/api/services/app/OrganizationUnit/GetUserByOrganizationUnit?";
+        if (code === undefined || code === null)
+            throw new Error("The parameter 'code' must be defined and cannot be null.");
+        else
+            url_ += "Code=" + encodeURIComponent("" + code) + "&"; 
+        if (skipCount !== undefined)
+            url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&"; 
+        if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetUserByOrganizationUnit(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetUserByOrganizationUnit(<any>response_);
+                } catch (e) {
+                    return <Observable<PagedResultDtoOfOrganizationUnitUserDto>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<PagedResultDtoOfOrganizationUnitUserDto>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processGetUserByOrganizationUnit(response: HttpResponseBase): Observable<PagedResultDtoOfOrganizationUnitUserDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? PagedResultDtoOfOrganizationUnitUserDto.fromJS(resultData200) : new PagedResultDtoOfOrganizationUnitUserDto();
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<PagedResultDtoOfOrganizationUnitUserDto>(<any>null);
+    }
+
+    /**
+     * 向组织单元添加用户
+     * @param input (optional) 
+     * @return Success
+     */
+    addUsers(input: UsersToOrganizationUnitInput | null | undefined): Observable<void> {
+        let url_ = this.baseUrl + "/api/services/app/OrganizationUnit/AddUsers";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(input);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processAddUsers(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processAddUsers(<any>response_);
+                } catch (e) {
+                    return <Observable<void>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<void>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processAddUsers(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return _observableOf<void>(<any>null);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<void>(<any>null);
+    }
+
+    /**
+     * 从组织单元删除用户
+     * @param userIds (optional) 用户编号数组
+     * @param organizationUnitCode 组织架构编号
+     * @return Success
+     */
+    removeUsers(userIds: number[] | null | undefined, organizationUnitCode: string): Observable<void> {
+        let url_ = this.baseUrl + "/api/services/app/OrganizationUnit/RemoveUsers?";
+        if (userIds !== undefined)
+            userIds && userIds.forEach(item => { url_ += "UserIds=" + encodeURIComponent("" + item) + "&"; });
+        if (organizationUnitCode === undefined || organizationUnitCode === null)
+            throw new Error("The parameter 'organizationUnitCode' must be defined and cannot be null.");
+        else
+            url_ += "OrganizationUnitCode=" + encodeURIComponent("" + organizationUnitCode) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+            })
+        };
+
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processRemoveUsers(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processRemoveUsers(<any>response_);
+                } catch (e) {
+                    return <Observable<void>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<void>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processRemoveUsers(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return _observableOf<void>(<any>null);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<void>(<any>null);
     }
 }
 
@@ -2461,12 +2641,19 @@ export interface IPagedResultDtoOfLoginAttemptShowIndexDto {
 }
 
 export class LoginAttemptShowIndexDto implements ILoginAttemptShowIndexDto {
+    /** 租户名称 */
     tenancyName: string | undefined;
+    /** 用户名称或者邮箱 */
     userNameOrEmailAddress: string | undefined;
+    /** 客户端IP地址 */
     clientIpAddress: string | undefined;
+    /** 客户端名称 */
     clientName: string | undefined;
+    /** 浏览器信息 */
     browserInfo: string | undefined;
+    /** 结果 */
     result: string | undefined;
+    /** 创建时间 */
     creationTime: moment.Moment | undefined;
     id: number | undefined;
 
@@ -2521,18 +2708,28 @@ export class LoginAttemptShowIndexDto implements ILoginAttemptShowIndexDto {
 }
 
 export interface ILoginAttemptShowIndexDto {
+    /** 租户名称 */
     tenancyName: string | undefined;
+    /** 用户名称或者邮箱 */
     userNameOrEmailAddress: string | undefined;
+    /** 客户端IP地址 */
     clientIpAddress: string | undefined;
+    /** 客户端名称 */
     clientName: string | undefined;
+    /** 浏览器信息 */
     browserInfo: string | undefined;
+    /** 结果 */
     result: string | undefined;
+    /** 创建时间 */
     creationTime: moment.Moment | undefined;
     id: number | undefined;
 }
 
+/** 创建或修改组织架构-传入 */
 export class CreateOrUpdateOrganizationUnitInput implements ICreateOrUpdateOrganizationUnitInput {
+    /** 上级组织架构Id（可空） */
     parentId: number | undefined;
+    /** 组织架构显示名称（必填） */
     displayName: string;
     id: number | undefined;
 
@@ -2576,17 +2773,25 @@ export class CreateOrUpdateOrganizationUnitInput implements ICreateOrUpdateOrgan
     }
 }
 
+/** 创建或修改组织架构-传入 */
 export interface ICreateOrUpdateOrganizationUnitInput {
+    /** 上级组织架构Id（可空） */
     parentId: number | undefined;
+    /** 组织架构显示名称（必填） */
     displayName: string;
     id: number | undefined;
 }
 
+/** 组织架构Dto */
 export class OrganizationUnitDto implements IOrganizationUnitDto {
+    /** 组织架构编号 */
     code: string | undefined;
+    /** 上级组织架构Id（可空） */
     parentId: number | undefined;
+    /** 租主Id（可空） */
     tenantId: number | undefined;
-    displayName: string | undefined;
+    /** 组织架构显示名称（必填） */
+    displayName: string;
     id: number | undefined;
 
     constructor(data?: IOrganizationUnitDto) {
@@ -2633,20 +2838,32 @@ export class OrganizationUnitDto implements IOrganizationUnitDto {
     }
 }
 
+/** 组织架构Dto */
 export interface IOrganizationUnitDto {
+    /** 组织架构编号 */
     code: string | undefined;
+    /** 上级组织架构Id（可空） */
     parentId: number | undefined;
+    /** 租主Id（可空） */
     tenantId: number | undefined;
-    displayName: string | undefined;
+    /** 组织架构显示名称（必填） */
+    displayName: string;
     id: number | undefined;
 }
 
+/** 组织架构树结构 */
 export class OrganizationUnitTreeDto implements IOrganizationUnitTreeDto {
+    /** 组织架构编号 */
     code: string | undefined;
+    /** 树结构编号 */
     key: string | undefined;
+    /** 上级组织架构Id（可空） */
     parentId: number | undefined;
+    /** 下级组织架构 */
     children: OrganizationUnitTreeDto[] | undefined;
+    /** 组织架构显示名 */
     displayName: string | undefined;
+    /** 树结构显示名 */
     title: string | undefined;
     id: number | undefined;
 
@@ -2706,14 +2923,210 @@ export class OrganizationUnitTreeDto implements IOrganizationUnitTreeDto {
     }
 }
 
+/** 组织架构树结构 */
 export interface IOrganizationUnitTreeDto {
+    /** 组织架构编号 */
     code: string | undefined;
+    /** 树结构编号 */
     key: string | undefined;
+    /** 上级组织架构Id（可空） */
     parentId: number | undefined;
+    /** 下级组织架构 */
     children: OrganizationUnitTreeDto[] | undefined;
+    /** 组织架构显示名 */
     displayName: string | undefined;
+    /** 树结构显示名 */
     title: string | undefined;
     id: number | undefined;
+}
+
+export class PagedResultDtoOfOrganizationUnitUserDto implements IPagedResultDtoOfOrganizationUnitUserDto {
+    totalCount: number | undefined;
+    items: OrganizationUnitUserDto[] | undefined;
+
+    constructor(data?: IPagedResultDtoOfOrganizationUnitUserDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.totalCount = data["totalCount"];
+            if (data["items"] && data["items"].constructor === Array) {
+                this.items = [];
+                for (let item of data["items"])
+                    this.items.push(OrganizationUnitUserDto.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): PagedResultDtoOfOrganizationUnitUserDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new PagedResultDtoOfOrganizationUnitUserDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["totalCount"] = this.totalCount;
+        if (this.items && this.items.constructor === Array) {
+            data["items"] = [];
+            for (let item of this.items)
+                data["items"].push(item.toJSON());
+        }
+        return data; 
+    }
+
+    clone(): PagedResultDtoOfOrganizationUnitUserDto {
+        const json = this.toJSON();
+        let result = new PagedResultDtoOfOrganizationUnitUserDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IPagedResultDtoOfOrganizationUnitUserDto {
+    totalCount: number | undefined;
+    items: OrganizationUnitUserDto[] | undefined;
+}
+
+export class OrganizationUnitUserDto implements IOrganizationUnitUserDto {
+    /** 用户Id */
+    userId: number | undefined;
+    /** 姓名 */
+    name: string | undefined;
+    /** 用户名 */
+    userName: string | undefined;
+    /** 组织架构编号 */
+    organizationUnitCode: string | undefined;
+    /** 添加到组织单元的时间 */
+    addedTime: moment.Moment | undefined;
+    id: number | undefined;
+
+    constructor(data?: IOrganizationUnitUserDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.userId = data["userId"];
+            this.name = data["name"];
+            this.userName = data["userName"];
+            this.organizationUnitCode = data["organizationUnitCode"];
+            this.addedTime = data["addedTime"] ? moment(data["addedTime"].toString()) : <any>undefined;
+            this.id = data["id"];
+        }
+    }
+
+    static fromJS(data: any): OrganizationUnitUserDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new OrganizationUnitUserDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["userId"] = this.userId;
+        data["name"] = this.name;
+        data["userName"] = this.userName;
+        data["organizationUnitCode"] = this.organizationUnitCode;
+        data["addedTime"] = this.addedTime ? this.addedTime.toISOString() : <any>undefined;
+        data["id"] = this.id;
+        return data; 
+    }
+
+    clone(): OrganizationUnitUserDto {
+        const json = this.toJSON();
+        let result = new OrganizationUnitUserDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IOrganizationUnitUserDto {
+    /** 用户Id */
+    userId: number | undefined;
+    /** 姓名 */
+    name: string | undefined;
+    /** 用户名 */
+    userName: string | undefined;
+    /** 组织架构编号 */
+    organizationUnitCode: string | undefined;
+    /** 添加到组织单元的时间 */
+    addedTime: moment.Moment | undefined;
+    id: number | undefined;
+}
+
+/** 用户-组织架构dto */
+export class UsersToOrganizationUnitInput implements IUsersToOrganizationUnitInput {
+    /** 用户编号数组 */
+    userIds: number[] | undefined;
+    /** 组织架构编号 */
+    organizationUnitCode: string;
+
+    constructor(data?: IUsersToOrganizationUnitInput) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            if (data["userIds"] && data["userIds"].constructor === Array) {
+                this.userIds = [];
+                for (let item of data["userIds"])
+                    this.userIds.push(item);
+            }
+            this.organizationUnitCode = data["organizationUnitCode"];
+        }
+    }
+
+    static fromJS(data: any): UsersToOrganizationUnitInput {
+        data = typeof data === 'object' ? data : {};
+        let result = new UsersToOrganizationUnitInput();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        if (this.userIds && this.userIds.constructor === Array) {
+            data["userIds"] = [];
+            for (let item of this.userIds)
+                data["userIds"].push(item);
+        }
+        data["organizationUnitCode"] = this.organizationUnitCode;
+        return data; 
+    }
+
+    clone(): UsersToOrganizationUnitInput {
+        const json = this.toJSON();
+        let result = new UsersToOrganizationUnitInput();
+        result.init(json);
+        return result;
+    }
+}
+
+/** 用户-组织架构dto */
+export interface IUsersToOrganizationUnitInput {
+    /** 用户编号数组 */
+    userIds: number[] | undefined;
+    /** 组织架构编号 */
+    organizationUnitCode: string;
 }
 
 export class CreateRoleDto implements ICreateRoleDto {

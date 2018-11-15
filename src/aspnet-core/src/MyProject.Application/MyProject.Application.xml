@@ -329,7 +329,7 @@
         </member>
         <member name="P:MyProject.Sys.OrganizationUnits.Dto.GetUserByOrganizationUnitInput.Code">
             <summary>
-            组织架构id
+            组织架构编号
             </summary>
         </member>
         <member name="T:MyProject.Sys.OrganizationUnits.Dto.OrganizationUnitDto">
@@ -390,6 +390,31 @@
         <member name="P:MyProject.Sys.OrganizationUnits.Dto.OrganizationUnitTreeDto.Title">
             <summary>
             树结构显示名
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.OrganizationUnits.Dto.OrganizationUnitUserDto.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.OrganizationUnits.Dto.OrganizationUnitUserDto.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.OrganizationUnits.Dto.OrganizationUnitUserDto.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.OrganizationUnits.Dto.OrganizationUnitUserDto.OrganizationUnitCode">
+            <summary>
+            组织架构编号
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.OrganizationUnits.Dto.OrganizationUnitUserDto.AddedTime">
+            <summary>
+            添加到组织单元的时间
             </summary>
         </member>
         <member name="T:MyProject.Sys.OrganizationUnits.Dto.UsersToOrganizationUnitInput">

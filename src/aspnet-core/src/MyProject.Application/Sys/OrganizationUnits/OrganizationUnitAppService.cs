@@ -127,7 +127,7 @@ namespace MyProject.Sys.OrganizationUnits
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public async Task<PagedResultDto<UserDto>> GetUserByOrganizationUnit(GetUserByOrganizationUnitInput input)
+        public async Task<PagedResultDto<OrganizationUnitUserDto>> GetUserByOrganizationUnit(GetUserByOrganizationUnitInput input)
         {
             OrganizationUnit organizationUnit = _organizationUnitRepository.GetAll().Where(p => p.Code == input.Code).FirstOrDefault();
             if (organizationUnit != null)
@@ -135,11 +135,21 @@ namespace MyProject.Sys.OrganizationUnits
                 var query = from a in _userOrganizationUnitRepository.GetAll()
                             join b in _userRepository.GetAll()
                             on a.UserId equals b.Id
-                            where a.Id == organizationUnit.Id
-                            select b;
+                            join c in _organizationUnitRepository.GetAll()
+                            on a.OrganizationUnitId equals c.Id
+                            where a.OrganizationUnitId == organizationUnit.Id
+                            select new OrganizationUnitUserDto()
+                            {
+                                Id = a.Id,
+                                UserId = a.UserId,
+                                Name = b.Name,
+                                UserName = b.UserName,
+                                OrganizationUnitCode = c.Code,
+                                AddedTime = a.CreationTime
+                            };
                 var count = await query.CountAsync();
                 var list = await query.ToListAsync();
-                return new PagedResultDto<UserDto>(count, list.MapTo<List<UserDto>>());
+                return new PagedResultDto<OrganizationUnitUserDto>(count, list);
             }
             else
             {
