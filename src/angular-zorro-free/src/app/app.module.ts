@@ -24,6 +24,7 @@ import { EditRoleComponent } from '@app/roles/edit-role/edit-role.component';
 import { CreateUserComponent } from '@app/users/create-user/create-user.component';
 import { EditUserComponent } from '@app/users/edit-user/edit-user.component';
 import { CreateOrganizationUnitComponent } from '@app/sys/organizationUnit/create-organizationUnit/create-organizationUnit.component';
+import { EditOrganizationUnitComponent } from '@app/sys/organizationUnit/edit-organizationUnit/edit-organizationUnit.component';
 import { MenuService } from '@yoyo/theme';
 
 import { LookupModelComponent } from '@app/layout/common/lookupModel/lookupModel.component';
@@ -57,7 +58,7 @@ import { LookupModelComponent } from '@app/layout/common/lookupModel/lookupModel
     CreateUserComponent,
     EditUserComponent,
     CreateOrganizationUnitComponent,
-
+    EditOrganizationUnitComponent,
     LookupModelComponent,
   ],
   entryComponents: [
@@ -68,7 +69,7 @@ import { LookupModelComponent } from '@app/layout/common/lookupModel/lookupModel
     CreateUserComponent,
     EditUserComponent,
     CreateOrganizationUnitComponent,
-
+    EditOrganizationUnitComponent,
     LookupModelComponent,
   ],
   providers: [LocalizationService, MenuService],

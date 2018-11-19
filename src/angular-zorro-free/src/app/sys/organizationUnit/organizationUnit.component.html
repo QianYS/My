@@ -22,8 +22,9 @@
         (nzContextMenu)="show($event)" #treeCom>
         <ng-template #contextTemplate>
           <ul nz-menu nzInDropDown>
-            <li nz-menu-item (click)="createChild('file')">新增子节点</li>
-            <li nz-menu-item (click)="editChild('folder')">修改</li>
+            <li nz-menu-item (click)="createChild()">新增子节点</li>
+            <li nz-menu-item (click)="addUser()">添加用户</li>
+            <li nz-menu-item (click)="editChild()">修改</li>
           </ul>
         </ng-template>
         <ng-template #nzTreeTemplate let-node>

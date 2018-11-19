@@ -46,7 +46,7 @@ export class CreateOrganizationUnitComponent extends ModalComponentBase
         this.saving = false;
       })
       .subscribe(() => {
-        this.notify.info(this.l('SavedSuccessfully'));
+        this.notify.success('新增成功');
         this.success();
       });
   }
