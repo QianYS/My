@@ -2217,6 +2217,71 @@ export class UserServiceProxy {
     }
 
     /**
+     * 人员查找
+     * @param input (optional) 
+     * @return Success
+     */
+    lookupModelUser(input: LookupModelUserInput | null | undefined): Observable<PagedResultDtoOfNameValueDto> {
+        let url_ = this.baseUrl + "/api/services/app/User/LookupModelUser";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(input);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processLookupModelUser(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processLookupModelUser(<any>response_);
+                } catch (e) {
+                    return <Observable<PagedResultDtoOfNameValueDto>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<PagedResultDtoOfNameValueDto>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processLookupModelUser(response: HttpResponseBase): Observable<PagedResultDtoOfNameValueDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? PagedResultDtoOfNameValueDto.fromJS(resultData200) : new PagedResultDtoOfNameValueDto();
+            return _observableOf(result200);
+            }));
+        } else if (status === 401) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            }));
+        } else if (status === 403) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<PagedResultDtoOfNameValueDto>(<any>null);
+    }
+
+    /**
      * @param id (optional) 
      * @return Success
      */
@@ -4653,6 +4718,175 @@ export class ChangeUserLanguageDto implements IChangeUserLanguageDto {
 
 export interface IChangeUserLanguageDto {
     languageName: string;
+}
+
+/** 人员选择Input */
+export class LookupModelUserInput implements ILookupModelUserInput {
+    /** 角色显示名（数组） */
+    roleNameArray: string[] | undefined;
+    filter: string | undefined;
+    skipCount: number | undefined;
+    maxResultCount: number | undefined;
+
+    constructor(data?: ILookupModelUserInput) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            if (data["roleNameArray"] && data["roleNameArray"].constructor === Array) {
+                this.roleNameArray = [];
+                for (let item of data["roleNameArray"])
+                    this.roleNameArray.push(item);
+            }
+            this.filter = data["filter"];
+            this.skipCount = data["skipCount"];
+            this.maxResultCount = data["maxResultCount"];
+        }
+    }
+
+    static fromJS(data: any): LookupModelUserInput {
+        data = typeof data === 'object' ? data : {};
+        let result = new LookupModelUserInput();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        if (this.roleNameArray && this.roleNameArray.constructor === Array) {
+            data["roleNameArray"] = [];
+            for (let item of this.roleNameArray)
+                data["roleNameArray"].push(item);
+        }
+        data["filter"] = this.filter;
+        data["skipCount"] = this.skipCount;
+        data["maxResultCount"] = this.maxResultCount;
+        return data; 
+    }
+
+    clone(): LookupModelUserInput {
+        const json = this.toJSON();
+        let result = new LookupModelUserInput();
+        result.init(json);
+        return result;
+    }
+}
+
+/** 人员选择Input */
+export interface ILookupModelUserInput {
+    /** 角色显示名（数组） */
+    roleNameArray: string[] | undefined;
+    filter: string | undefined;
+    skipCount: number | undefined;
+    maxResultCount: number | undefined;
+}
+
+export class PagedResultDtoOfNameValueDto implements IPagedResultDtoOfNameValueDto {
+    totalCount: number | undefined;
+    items: NameValueDto[] | undefined;
+
+    constructor(data?: IPagedResultDtoOfNameValueDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.totalCount = data["totalCount"];
+            if (data["items"] && data["items"].constructor === Array) {
+                this.items = [];
+                for (let item of data["items"])
+                    this.items.push(NameValueDto.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): PagedResultDtoOfNameValueDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new PagedResultDtoOfNameValueDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["totalCount"] = this.totalCount;
+        if (this.items && this.items.constructor === Array) {
+            data["items"] = [];
+            for (let item of this.items)
+                data["items"].push(item.toJSON());
+        }
+        return data; 
+    }
+
+    clone(): PagedResultDtoOfNameValueDto {
+        const json = this.toJSON();
+        let result = new PagedResultDtoOfNameValueDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IPagedResultDtoOfNameValueDto {
+    totalCount: number | undefined;
+    items: NameValueDto[] | undefined;
+}
+
+export class NameValueDto implements INameValueDto {
+    name: string | undefined;
+    value: string | undefined;
+
+    constructor(data?: INameValueDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.name = data["name"];
+            this.value = data["value"];
+        }
+    }
+
+    static fromJS(data: any): NameValueDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new NameValueDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["name"] = this.name;
+        data["value"] = this.value;
+        return data; 
+    }
+
+    clone(): NameValueDto {
+        const json = this.toJSON();
+        let result = new NameValueDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface INameValueDto {
+    name: string | undefined;
+    value: string | undefined;
 }
 
 export class PagedResultDtoOfUserDto implements IPagedResultDtoOfUserDto {

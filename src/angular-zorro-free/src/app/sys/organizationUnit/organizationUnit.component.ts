@@ -20,7 +20,8 @@ import {
 //import { Key } from 'protractor';
 import { CreateOrganizationUnitComponent } from '@app/sys/organizationUnit/create-organizationUnit/create-organizationUnit.component';
 import { EditOrganizationUnitComponent } from '@app/sys/organizationUnit/edit-organizationUnit/edit-organizationUnit.component';
-//import { LookupModelComponent } from '@app/layout/common/lookupModel/lookupModel.component';
+import { LookupModelUserComponent } from '@app/users/lookupModel-user/lookupModel-user-component';
+import { stringify } from '@angular/core/src/render3/util';
 
 @Component({
   selector: 'app-organizationUnit',
@@ -28,7 +29,7 @@ import { EditOrganizationUnitComponent } from '@app/sys/organizationUnit/edit-or
   styles: [],
 })
 export class OrganizationUnitComponent extends PagedListingComponentBase<
-  OrganizationUnitUserDto
+OrganizationUnitUserDto
 > {
   @ViewChild('treeCom')
   treeCom: NzTreeComponent;
@@ -154,26 +155,24 @@ export class OrganizationUnitComponent extends PagedListingComponentBase<
       });
   }
 
-  // lookup(): void {
-  //   this.modalHelper
-  //     .open(
-  //       LookupModelComponent,
-  //       {
-  //         server: this._userService,
-  //         serviceMethod: this._userService.getAll,
-  //         filter: '',
-  //       },
-  //       'md',
-  //       {
-  //         nzMask: true,
-  //         nzClosable: false,
-  //       },
-  //     )
-  //     .subscribe(isSave => {
-  //       //console.log(isSave);
-  //       if (isSave) {
-  //         this.refresh();
-  //       }
-  //     });
-  // }
+  lookup(): void {
+    this.modalHelper
+      .open(
+        LookupModelUserComponent,
+        {
+          roleNameArray: []
+        },
+        'md',
+        {
+          nzMask: true,
+          nzClosable: false,
+        },
+      )
+      .subscribe(isSave => {
+        //console.log(isSave);
+        if (isSave) {
+          this.refresh();
+        }
+      });
+  }
 }

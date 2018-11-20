@@ -8,15 +8,15 @@
     [nzFrontPagination]="false">
     <thead>
       <tr>
-        <th>{{l("UserName")}}</th>
-        <th>{{l("FullName")}}</th>
+        <th>姓名</th>
+        <th>操作</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of ajaxTable.data">
         <td>{{item.name}}</td>
         <td>
-          <a (click)="edit(item)">选择</a>
+          <a (click)="choose(item)">选择</a>
         </td>
       </tr>
     </tbody>
