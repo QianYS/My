@@ -18,27 +18,27 @@
           </button>
         </div>
       </div>
-      <nz-tree [nzData]="organizationUnitList" nzMultiple="true" (nzClick)="activeNode($event)" nzExpandAll="true"
-        (nzContextMenu)="show($event)" #treeCom>
+      <nz-tree [nzData]="organizationUnitList" nzMultiple="false" (nzClick)="activeNode($event)" nzExpandAll="true"
+        #treeCom>
         <ng-template #contextTemplate>
           <ul nz-menu nzInDropDown>
             <li nz-menu-item (click)="createChild()">新增子节点</li>
-            <li nz-menu-item (click)="addUser()">添加用户</li>
+            <li nz-menu-item (click)="lookup()">添加用户</li>
             <li nz-menu-item (click)="editChild()">修改</li>
           </ul>
         </ng-template>
         <ng-template #nzTreeTemplate let-node>
-          <span class="custom-node" [class.active]="activedNode?.key===node.key">
-            <span *ngIf="true" (contextmenu)="contextMenu($event,contextTemplate)">
+          <span class="custom-node">
+            <span (contextmenu)="contextMenu($event,contextTemplate,node.key)">
               <i class="anticon" class="anticon anticon-team"></i>
               <span class="folder-name">{{node.title}}</span>
               <span class="folder-desc">{{node?.origin?.author | lowercase}}</span>
             </span>
-            <span *ngIf="false">
+            <!-- <span *ngIf="false">
               <i class="anticon anticon-file"></i>
               <span class="file-name">{{node.title}}</span>
               <span class="file-desc">{{node?.origin?.author | lowercase}}</span>
-            </span>
+            </span> -->
           </span>
         </ng-template>
       </nz-tree>

@@ -1,0 +1,24 @@
+<div class="padding-bottom-45">
+
+  <h3>
+    <span>选择用户</span>
+  </h3>
+  <nz-table #ajaxTable nzShowSizeChanger [nzData]="dataList" [nzTotal]="totalItems" [(nzPageIndex)]="pageNumber"
+    [(nzPageSize)]="pageSize" [nzLoading]="isTableLoading" (nzPageIndexChange)="refresh()" (nzPageSizeChange)="refresh()"
+    [nzFrontPagination]="false">
+    <thead>
+      <tr>
+        <th>{{l("UserName")}}</th>
+        <th>{{l("FullName")}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of ajaxTable.data">
+        <td>{{item.name}}</td>
+        <td>
+          <a (click)="edit(item)">选择</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

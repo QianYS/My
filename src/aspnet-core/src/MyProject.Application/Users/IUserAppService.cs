@@ -11,5 +11,12 @@ namespace MyProject.Users
         Task<ListResultDto<RoleDto>> GetRoles();
 
         Task ChangeLanguage(ChangeUserLanguageDto input);
+
+        /// <summary>
+        /// »À‘±≤È’“
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        Task<PagedResultDto<NameValueDto>> LookupModelUser(LookupModelUserInput input);
     }
 }

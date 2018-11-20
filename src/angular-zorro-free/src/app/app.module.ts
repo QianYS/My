@@ -27,7 +27,6 @@ import { CreateOrganizationUnitComponent } from '@app/sys/organizationUnit/creat
 import { EditOrganizationUnitComponent } from '@app/sys/organizationUnit/edit-organizationUnit/edit-organizationUnit.component';
 import { MenuService } from '@yoyo/theme';
 
-import { LookupModelComponent } from '@app/layout/common/lookupModel/lookupModel.component';
 
 @NgModule({
   imports: [
@@ -59,7 +58,6 @@ import { LookupModelComponent } from '@app/layout/common/lookupModel/lookupModel
     EditUserComponent,
     CreateOrganizationUnitComponent,
     EditOrganizationUnitComponent,
-    LookupModelComponent,
   ],
   entryComponents: [
     CreateTenantComponent,
@@ -70,7 +68,6 @@ import { LookupModelComponent } from '@app/layout/common/lookupModel/lookupModel
     EditUserComponent,
     CreateOrganizationUnitComponent,
     EditOrganizationUnitComponent,
-    LookupModelComponent,
   ],
   providers: [LocalizationService, MenuService],
 })

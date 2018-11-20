@@ -16,6 +16,8 @@ using MyProject.Authorization.Roles;
 using MyProject.Authorization.Users;
 using MyProject.Roles.Dto;
 using MyProject.Users.Dto;
+using Abp.Linq.Extensions;
+using Abp.Authorization.Users;
 
 namespace MyProject.Users
 {
@@ -25,6 +27,7 @@ namespace MyProject.Users
         private readonly UserManager _userManager;
         private readonly RoleManager _roleManager;
         private readonly IRepository<Role> _roleRepository;
+        private readonly IRepository<UserRole, long> _userRoleRepository;
         private readonly IPasswordHasher<User> _passwordHasher;
 
         public UserAppService(
@@ -32,12 +35,14 @@ namespace MyProject.Users
             UserManager userManager,
             RoleManager roleManager,
             IRepository<Role> roleRepository,
+            IRepository<UserRole, long> userRoleRepository,
             IPasswordHasher<User> passwordHasher)
             : base(repository)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _roleRepository = roleRepository;
+            _userRoleRepository = userRoleRepository;
             _passwordHasher = passwordHasher;
         }
 
@@ -149,6 +154,34 @@ namespace MyProject.Users
         protected virtual void CheckErrors(IdentityResult identityResult)
         {
             identityResult.CheckErrors(LocalizationManager);
+        }
+
+        /// <summary>
+        /// »À‘±≤È’“
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public async Task<PagedResultDto<NameValueDto>> LookupModelUser(LookupModelUserInput input)
+        {
+            var userQuery = Repository.GetAll();
+            var roleQuery = _roleRepository.GetAll();
+            var userRoleQuery = _userRoleRepository.GetAll();
+            var query = from user in Repository.GetAll()
+                        select new
+                        {
+                            userDto = user,
+                            roleList = (from role in roleQuery
+                                        join userRole in userRoleQuery
+                                        on role.Id equals userRole.RoleId
+                                        where userRole.UserId == user.Id
+                                        select role).ToList(),
+                        };
+            query = query
+                .WhereIf(input.RoleNameArray.Length != 0, p => p.roleList.Any(z => input.RoleNameArray.Contains(z.DisplayName)))
+                .WhereIf(!string.IsNullOrWhiteSpace(input.Filter), p => p.userDto.Name.Contains(input.Filter));
+            var count = await query.CountAsync();
+            var list = await query.Select((item) => new NameValueDto(item.userDto.FullName.ToString(), item.userDto.Id.ToString())).ToListAsync();
+            return new PagedResultDto<NameValueDto>(count, list);
         }
     }
 }

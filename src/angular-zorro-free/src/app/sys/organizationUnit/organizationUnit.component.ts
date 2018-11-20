@@ -8,6 +8,7 @@ import {
   OrganizationUnitTreeDto,
   PagedResultDtoOfOrganizationUnitUserDto,
   OrganizationUnitUserDto,
+  UserServiceProxy,
 } from '@shared/service-proxies/service-proxies';
 import {
   NzDropdownContextComponent,
@@ -19,7 +20,7 @@ import {
 //import { Key } from 'protractor';
 import { CreateOrganizationUnitComponent } from '@app/sys/organizationUnit/create-organizationUnit/create-organizationUnit.component';
 import { EditOrganizationUnitComponent } from '@app/sys/organizationUnit/edit-organizationUnit/edit-organizationUnit.component';
-import { LookupModelComponent } from '@app/layout/common/lookupModel/lookupModel.component';
+//import { LookupModelComponent } from '@app/layout/common/lookupModel/lookupModel.component';
 
 @Component({
   selector: 'app-organizationUnit',
@@ -33,15 +34,16 @@ export class OrganizationUnitComponent extends PagedListingComponentBase<
   treeCom: NzTreeComponent;
   dropdown: NzDropdownContextComponent;
   // actived node
-  selectedNodeKey: string = null;
-  activedNodeKey: string = null;
+  selectedNodeKey: string = null; //（用于获取该组织架构中用户）
+  activedNodeKey: string = null; //（用于判断新增组织架构级别，操作后清空）
   organizationUnitList: NzTreeNode[];
   requestThis: PagedRequestDto;
   pageNumberThis: number;
   finishedCallbackThis: Function;
   constructor(
     injector: Injector,
-    private _organizationUnitService: OrganizationUnitServiceProxy, //private _userService: UserServiceProxy,
+    private _organizationUnitService: OrganizationUnitServiceProxy,
+    private _userService: UserServiceProxy,
   ) {
     super(injector);
   }
@@ -72,17 +74,17 @@ export class OrganizationUnitComponent extends PagedListingComponentBase<
 
   //选中组织架构节点
   activeNode(data: NzFormatEmitEvent): void {
-    //this.activedNode = data.node; //选中节点（用于判断新增组织架构级别，操作后清空）
     this.selectedNodeKey = data.node.key.toString(); //选中节点编号（用于获取该组织架构中用户）
     this.GetUser();
   }
 
-  show(data: NzFormatEmitEvent): void {
-    this.activedNodeKey = data.node.key.toString();
-  }
-
   //出现组织架构右键菜单
-  contextMenu($event: MouseEvent, template: TemplateRef<void>): void {
+  contextMenu(
+    $event: MouseEvent,
+    template: TemplateRef<void>,
+    key: string,
+  ): void {
+    this.activedNodeKey = key.toString();
     this.dropdown = this.nzDropdownService.create($event, template);
   }
 
@@ -116,7 +118,26 @@ export class OrganizationUnitComponent extends PagedListingComponentBase<
         if (isSave) {
           this.refresh();
           this.nzDropdownService.close();
-          this.activedNodeKey = null;
+        }
+      });
+  }
+
+  //修改组织架构显示名
+  editChild(): void {
+    let key: string = this.activedNodeKey;
+    if (key == '') {
+      abp.notify.error('组织架构参数丢失！');
+    }
+    this.modalHelper
+      .open(EditOrganizationUnitComponent, { key: key }, 'md', {
+        nzMask: true,
+        nzClosable: false,
+      })
+      .subscribe(isSave => {
+        this.activedNodeKey = null;
+        if (isSave) {
+          this.refresh();
+          this.nzDropdownService.close();
         }
       });
   }
@@ -129,7 +150,6 @@ export class OrganizationUnitComponent extends PagedListingComponentBase<
         this.finishedCallbackThis();
       })
       .subscribe(() => {
-        this.activeNode = null;
         this.GetUser();
       });
   }
@@ -139,10 +159,9 @@ export class OrganizationUnitComponent extends PagedListingComponentBase<
   //     .open(
   //       LookupModelComponent,
   //       {
-  //         obj: {
-  //           serviceMethod: this._roleService.getAllPermissionsTree,
-  //           filter: '111',
-  //         },
+  //         server: this._userService,
+  //         serviceMethod: this._userService.getAll,
+  //         filter: '',
   //       },
   //       'md',
   //       {
@@ -151,29 +170,10 @@ export class OrganizationUnitComponent extends PagedListingComponentBase<
   //       },
   //     )
   //     .subscribe(isSave => {
-  //       console.log(isSave);
+  //       //console.log(isSave);
   //       if (isSave) {
   //         this.refresh();
   //       }
   //     });
-  //}
-
-  editChild(): void {
-    let key: string = this.activedNodeKey;
-    if (key == '') {
-      abp.notify.error('组织架构参数丢失！');
-    }
-    this.modalHelper
-      .open(EditOrganizationUnitComponent, { key: key }, 'md', {
-        nzMask: true,
-        nzClosable: false,
-      })
-      .subscribe(isSave => {
-        if (isSave) {
-          this.refresh();
-          this.nzDropdownService.close();
-          this.activedNodeKey = null;
-        }
-      });
-  }
+  // }
 }

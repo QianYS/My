@@ -602,5 +602,29 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="T:MyProject.Users.Dto.LookupModelUserInput">
+            <summary>
+            人员选择Input
+            </summary>
+        </member>
+        <member name="P:MyProject.Users.Dto.LookupModelUserInput.RoleNameArray">
+            <summary>
+            角色显示名（数组）
+            </summary>
+        </member>
+        <member name="M:MyProject.Users.IUserAppService.LookupModelUser(MyProject.Users.Dto.LookupModelUserInput)">
+            <summary>
+            人员查找
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyProject.Users.UserAppService.LookupModelUser(MyProject.Users.Dto.LookupModelUserInput)">
+            <summary>
+            人员查找
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
