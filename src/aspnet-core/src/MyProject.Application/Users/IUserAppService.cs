@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
+using MyProject.Dto.Paged;
 using MyProject.Roles.Dto;
 using MyProject.Users.Dto;
 
@@ -18,5 +19,12 @@ namespace MyProject.Users
         /// <param name="input"></param>
         /// <returns></returns>
         Task<PagedResultDto<NameValueDto>> LookupModelUser(LookupModelUserInput input);
+
+        /// <summary>
+        /// 获取用户列表
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        Task<PagedResultDto<UserListDto>> GetUsers(PagedAndFilterInputDto input);
     }
 }

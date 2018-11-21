@@ -1,8 +1,23 @@
 <page-header [title]="l('Users')"></page-header>
 
+<nz-card>
+  <h3>条件搜索</h3>
+  <nz-input-group>
+    <div nz-col nzSpan="4">
+      <input type="text" nz-input [(ngModel)]="filter" placeholder="姓名">
+    </div>
+  </nz-input-group>
+  <br />
+  <nz-input-group>
+    <div nz-col nzSpan="4">
+      <button nz-button (click)="refresh()" nzType="primary">
+        <i class="anticon anticon-search" (click)="search()"></i>搜索
+      </button>
+    </div>
+  </nz-input-group>
+</nz-card>
 
 <nz-card [nzExtra]="extraTpl">
-
   <ng-template #extraTpl>
     <button nz-button (click)="refresh()" nzShape="circle">
       <i class="anticon anticon-reload"></i>
@@ -27,8 +42,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of ajaxTable.data">
-        <td>{{item.name}}</td>
-        <td>{{item.fullName}}</td>
+        <td>{{item.userName}}</td>
+        <td>{{item.name}} {{item.surName}}</td>
         <td>{{item.emailAddress}}</td>
         <td>
           <nz-badge *ngIf="item.isActive" [nzStatus]="'success'" [nzText]="l('Yes')"></nz-badge>

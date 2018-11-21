@@ -1260,16 +1260,16 @@ export class RoleServiceProxy {
     }
 
     /**
-     * @param skipCount (optional) 
      * @param maxResultCount (optional) 
+     * @param skipCount (optional) 
      * @return Success
      */
-    getAll(skipCount: number | null | undefined, maxResultCount: number | null | undefined): Observable<PagedResultDtoOfRoleDto> {
+    getAll(maxResultCount: number | null | undefined, skipCount: number | null | undefined): Observable<PagedResultDtoOfRoleDto> {
         let url_ = this.baseUrl + "/api/services/app/Role/GetAll?";
-        if (skipCount !== undefined)
-            url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&"; 
         if (maxResultCount !== undefined)
             url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&"; 
+        if (skipCount !== undefined)
+            url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&"; 
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -1588,16 +1588,16 @@ export class TenantServiceProxy {
     }
 
     /**
-     * @param skipCount (optional) 
      * @param maxResultCount (optional) 
+     * @param skipCount (optional) 
      * @return Success
      */
-    getAll(skipCount: number | null | undefined, maxResultCount: number | null | undefined): Observable<PagedResultDtoOfTenantDto> {
+    getAll(maxResultCount: number | null | undefined, skipCount: number | null | undefined): Observable<PagedResultDtoOfTenantDto> {
         let url_ = this.baseUrl + "/api/services/app/Tenant/GetAll?";
-        if (skipCount !== undefined)
-            url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&"; 
         if (maxResultCount !== undefined)
             url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&"; 
+        if (skipCount !== undefined)
+            url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&"; 
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -2282,6 +2282,76 @@ export class UserServiceProxy {
     }
 
     /**
+     * 获取用户列表
+     * @param filter (optional) 
+     * @param skipCount (optional) 
+     * @param maxResultCount (optional) 
+     * @return Success
+     */
+    getUsers(filter: string | null | undefined, skipCount: number | null | undefined, maxResultCount: number | null | undefined): Observable<PagedResultDtoOfUserListDto> {
+        let url_ = this.baseUrl + "/api/services/app/User/GetUsers?";
+        if (filter !== undefined)
+            url_ += "Filter=" + encodeURIComponent("" + filter) + "&"; 
+        if (skipCount !== undefined)
+            url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&"; 
+        if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetUsers(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetUsers(<any>response_);
+                } catch (e) {
+                    return <Observable<PagedResultDtoOfUserListDto>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<PagedResultDtoOfUserListDto>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processGetUsers(response: HttpResponseBase): Observable<PagedResultDtoOfUserListDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? PagedResultDtoOfUserListDto.fromJS(resultData200) : new PagedResultDtoOfUserListDto();
+            return _observableOf(result200);
+            }));
+        } else if (status === 401) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            }));
+        } else if (status === 403) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<PagedResultDtoOfUserListDto>(<any>null);
+    }
+
+    /**
      * @param id (optional) 
      * @return Success
      */
@@ -2345,16 +2415,16 @@ export class UserServiceProxy {
     }
 
     /**
-     * @param skipCount (optional) 
      * @param maxResultCount (optional) 
+     * @param skipCount (optional) 
      * @return Success
      */
-    getAll(skipCount: number | null | undefined, maxResultCount: number | null | undefined): Observable<PagedResultDtoOfUserDto> {
+    getAll(maxResultCount: number | null | undefined, skipCount: number | null | undefined): Observable<PagedResultDtoOfUserDto> {
         let url_ = this.baseUrl + "/api/services/app/User/GetAll?";
-        if (skipCount !== undefined)
-            url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&"; 
         if (maxResultCount !== undefined)
             url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&"; 
+        if (skipCount !== undefined)
+            url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&"; 
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -4887,6 +4957,144 @@ export class NameValueDto implements INameValueDto {
 export interface INameValueDto {
     name: string | undefined;
     value: string | undefined;
+}
+
+export class PagedResultDtoOfUserListDto implements IPagedResultDtoOfUserListDto {
+    totalCount: number | undefined;
+    items: UserListDto[] | undefined;
+
+    constructor(data?: IPagedResultDtoOfUserListDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.totalCount = data["totalCount"];
+            if (data["items"] && data["items"].constructor === Array) {
+                this.items = [];
+                for (let item of data["items"])
+                    this.items.push(UserListDto.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): PagedResultDtoOfUserListDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new PagedResultDtoOfUserListDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["totalCount"] = this.totalCount;
+        if (this.items && this.items.constructor === Array) {
+            data["items"] = [];
+            for (let item of this.items)
+                data["items"].push(item.toJSON());
+        }
+        return data; 
+    }
+
+    clone(): PagedResultDtoOfUserListDto {
+        const json = this.toJSON();
+        let result = new PagedResultDtoOfUserListDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IPagedResultDtoOfUserListDto {
+    totalCount: number | undefined;
+    items: UserListDto[] | undefined;
+}
+
+export class UserListDto implements IUserListDto {
+    name: string | undefined;
+    surName: string | undefined;
+    userName: string | undefined;
+    emailAddress: string | undefined;
+    phoneNumber: string | undefined;
+    profilePictureId: string | undefined;
+    isEmailConfirmed: boolean | undefined;
+    lastLoginTime: moment.Moment | undefined;
+    isActive: boolean | undefined;
+    creationTime: moment.Moment | undefined;
+    id: number | undefined;
+
+    constructor(data?: IUserListDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.name = data["name"];
+            this.surName = data["surName"];
+            this.userName = data["userName"];
+            this.emailAddress = data["emailAddress"];
+            this.phoneNumber = data["phoneNumber"];
+            this.profilePictureId = data["profilePictureId"];
+            this.isEmailConfirmed = data["isEmailConfirmed"];
+            this.lastLoginTime = data["lastLoginTime"] ? moment(data["lastLoginTime"].toString()) : <any>undefined;
+            this.isActive = data["isActive"];
+            this.creationTime = data["creationTime"] ? moment(data["creationTime"].toString()) : <any>undefined;
+            this.id = data["id"];
+        }
+    }
+
+    static fromJS(data: any): UserListDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new UserListDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["name"] = this.name;
+        data["surName"] = this.surName;
+        data["userName"] = this.userName;
+        data["emailAddress"] = this.emailAddress;
+        data["phoneNumber"] = this.phoneNumber;
+        data["profilePictureId"] = this.profilePictureId;
+        data["isEmailConfirmed"] = this.isEmailConfirmed;
+        data["lastLoginTime"] = this.lastLoginTime ? this.lastLoginTime.toISOString() : <any>undefined;
+        data["isActive"] = this.isActive;
+        data["creationTime"] = this.creationTime ? this.creationTime.toISOString() : <any>undefined;
+        data["id"] = this.id;
+        return data; 
+    }
+
+    clone(): UserListDto {
+        const json = this.toJSON();
+        let result = new UserListDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IUserListDto {
+    name: string | undefined;
+    surName: string | undefined;
+    userName: string | undefined;
+    emailAddress: string | undefined;
+    phoneNumber: string | undefined;
+    profilePictureId: string | undefined;
+    isEmailConfirmed: boolean | undefined;
+    lastLoginTime: moment.Moment | undefined;
+    isActive: boolean | undefined;
+    creationTime: moment.Moment | undefined;
+    id: number | undefined;
 }
 
 export class PagedResultDtoOfUserDto implements IPagedResultDtoOfUserDto {

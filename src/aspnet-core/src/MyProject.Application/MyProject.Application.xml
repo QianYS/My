@@ -607,6 +607,15 @@
             人员选择Input
             </summary>
         </member>
+        <member name="M:MyProject.Users.Dto.LookupModelUserInput.#ctor(System.Int32,System.Int32,System.String,System.String[])">
+            <summary>
+            子类构造函数
+            </summary>
+            <param name="skipCount">跳过条数</param>
+            <param name="maxResultCount">每页最大显示条数</param>
+            <param name="filter">查询参数</param>
+            <param name="roleNameArray">查询角色</param>
+        </member>
         <member name="P:MyProject.Users.Dto.LookupModelUserInput.RoleNameArray">
             <summary>
             角色显示名（数组）
@@ -619,9 +628,23 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="M:MyProject.Users.IUserAppService.GetUsers(MyProject.Dto.Paged.PagedAndFilterInputDto)">
+            <summary>
+            获取用户列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
         <member name="M:MyProject.Users.UserAppService.LookupModelUser(MyProject.Users.Dto.LookupModelUserInput)">
             <summary>
             人员查找
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyProject.Users.UserAppService.GetUsers(MyProject.Dto.Paged.PagedAndFilterInputDto)">
+            <summary>
+            获取用户列表
             </summary>
             <param name="input"></param>
             <returns></returns>

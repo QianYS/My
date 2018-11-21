@@ -18,6 +18,8 @@ using MyProject.Roles.Dto;
 using MyProject.Users.Dto;
 using Abp.Linq.Extensions;
 using Abp.Authorization.Users;
+using MyProject.Dto.Paged;
+using Abp.Extensions;
 
 namespace MyProject.Users
 {
@@ -182,6 +184,38 @@ namespace MyProject.Users
             var count = await query.CountAsync();
             var list = await query.Select((item) => new NameValueDto(item.userDto.FullName.ToString(), item.userDto.Id.ToString())).ToListAsync();
             return new PagedResultDto<NameValueDto>(count, list);
+        }
+
+        /// <summary>
+        /// 获取用户列表
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public async Task<PagedResultDto<UserListDto>> GetUsers(PagedAndFilterInputDto input)
+        {
+            var query = Repository.GetAll()
+                .WhereIf(
+                    !input.Filter.IsNullOrWhiteSpace(),
+                    u =>
+                        u.Name.Contains(input.Filter) ||
+                        u.Surname.Contains(input.Filter) ||
+                        u.UserName.Contains(input.Filter) ||
+                        u.EmailAddress.Contains(input.Filter)
+                );
+            var userCount = await query.CountAsync();
+
+            var users = await query
+                .OrderBy(p => p.Name)
+                .ThenBy(p => p.FullName)
+                .PageBy(input)
+                .ToListAsync();
+
+            var userListDtos = ObjectMapper.Map<List<UserListDto>>(users);
+
+            return new PagedResultDto<UserListDto>(
+                userCount,
+                userListDtos
+                );
         }
     }
 }
