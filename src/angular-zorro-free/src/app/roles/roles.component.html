@@ -1,5 +1,21 @@
 <page-header [title]="l('Roles')"></page-header>
 
+<nz-card>
+  <h3>条件搜索</h3>
+  <nz-input-group>
+    <div nz-col nzSpan="4">
+      <input type="text" nz-input [(ngModel)]="filter" placeholder="角色名">
+    </div>
+  </nz-input-group>
+  <br />
+  <nz-input-group>
+    <div nz-col nzSpan="4">
+      <button nz-button nzType="primary" (click)="search()">
+        <i class="anticon anticon-search"></i>搜索
+      </button>
+    </div>
+  </nz-input-group>
+</nz-card>
 
 <nz-card [nzExtra]="extraTpl">
 

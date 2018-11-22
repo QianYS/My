@@ -191,7 +191,7 @@ namespace MyProject.Users
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public async Task<PagedResultDto<UserListDto>> GetUsers(PagedAndFilterInputDto input)
+        public async Task<PagedResultDto<UserListDto>> GetUsersIndexList(PagedAndFilterInputDto input)
         {
             var query = Repository.GetAll()
                 .WhereIf(

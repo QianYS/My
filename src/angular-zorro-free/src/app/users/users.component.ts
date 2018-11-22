@@ -4,7 +4,6 @@ import {
   PagedRequestDto,
 } from '@shared/component-base/paged-listing-component-base';
 import {
-  PagedResultDtoOfUserDto,
   UserServiceProxy,
   PagedResultDtoOfUserListDto,
   UserListDto,
@@ -22,26 +21,16 @@ export class UsersComponent extends PagedListingComponentBase<UserListDto> {
   constructor(injector: Injector, private _userService: UserServiceProxy) {
     super(injector);
   }
+
   filter: string = '';
-  protected fetchDataList(
-    request: PagedRequestDto,
-    pageNumber: number,
-    finishedCallback: Function,
-  ): void {
-    this.getUserIndexList(finishedCallback);
-    // this._userService
-    //   .getUsers('', request.skipCount, request.maxResultCount)
-    //   .finally(() => {
-    //     finishedCallback();
-    //   })
-    //   .subscribe((result: PagedResultDtoOfUserListDto) => {
-    //     this.dataList = result.items;
-    //     this.totalItems = result.totalCount;
-    //   });
+  isTableLoading: boolean = true;
+
+  protected fetchDataList(): void {
+    this.getUserIndexList();
   }
 
-  search(finishedCallback: Function): void {
-    this.getUserIndexList(finishedCallback);
+  search(): void {
+    this.getUserIndexList();
   }
 
   protected delete(entity: UserDto): void {
@@ -84,17 +73,16 @@ export class UsersComponent extends PagedListingComponentBase<UserListDto> {
       });
   }
 
-  getUserIndexList(finishedCallback: Function): void {
+  getUserIndexList(): void {
     let maxResultCount = this.pageSize;
     let skipCount = (this.pageNumber - 1) * this.pageSize;
     this._userService
-      .getUsers(this.filter, skipCount, maxResultCount)
-      .finally(() => {
-        finishedCallback();
-      })
+      .getUsersIndexList(this.filter, skipCount, maxResultCount)
+      .finally(() => {})
       .subscribe((result: PagedResultDtoOfUserListDto) => {
         this.dataList = result.items;
         this.totalItems = result.totalCount;
+        this.isTableLoading = false;
       });
   }
 }

@@ -20,32 +20,28 @@ export class RolesComponent extends PagedListingComponentBase<RoleDto> {
   EditOrUpdate: boolean = abp.auth.isGranted('Pages.Sys.Roles.EditOrUpdate');
   ShowIndex: boolean = abp.auth.isGranted('Pages.Sys.Roles.ShowIndex');
 
-  constructor(injector: Injector, private rolesService: RoleServiceProxy) {
+  constructor(injector: Injector, private _rolesService: RoleServiceProxy) {
     super(injector);
   }
 
-  protected fetchDataList(
-    request: PagedRequestDto,
-    pageNumber: number,
-    finishedCallback: Function,
-  ): void {
-    this.rolesService
-      .getAll(request.skipCount, request.maxResultCount)
-      .finally(() => {
-        finishedCallback();
-      })
-      .subscribe((result: PagedResultDtoOfRoleDto) => {
-        this.dataList = result.items;
-        this.totalItems = result.totalCount;
-      });
+  filter: string = '';
+  isTableLoading: boolean = true;
+
+  protected fetchDataList(): void {
+    this.getRoleIndexList();
   }
+
+  search(): void {
+    this.getRoleIndexList();
+  }
+
   protected delete(entity: RoleDto): void {
     abp.message.confirm(
       "Remove Users from Role and delete Role '" + entity.displayName + "'?",
       'Permanently delete this Role',
       (result: boolean) => {
         if (result) {
-          this.rolesService
+          this._rolesService
             .delete(entity.id)
             .finally(() => {
               abp.notify.info('Deleted Role: ' + entity.displayName);
@@ -78,6 +74,19 @@ export class RolesComponent extends PagedListingComponentBase<RoleDto> {
         if (isSave) {
           this.refresh();
         }
+      });
+  }
+
+  getRoleIndexList(): void {
+    let maxResultCount = this.pageSize;
+    let skipCount = (this.pageNumber - 1) * this.pageSize;
+    this._rolesService
+      .getRolesIndexList(this.filter, skipCount, maxResultCount)
+      .finally(() => {})
+      .subscribe((result: PagedResultDtoOfRoleDto) => {
+        this.dataList = result.items;
+        this.totalItems = result.totalCount;
+        this.isTableLoading = false;
       });
   }
 }

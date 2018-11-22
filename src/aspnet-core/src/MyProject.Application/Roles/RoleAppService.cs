@@ -14,6 +14,8 @@ using MyProject.Authorization;
 using MyProject.Authorization.Roles;
 using MyProject.Authorization.Users;
 using MyProject.Roles.Dto;
+using MyProject.Dto.Paged;
+using Abp.AutoMapper;
 
 namespace MyProject.Roles
 {
@@ -30,6 +32,11 @@ namespace MyProject.Roles
             _userManager = userManager;
         }
 
+        /// <summary>
+        /// 新增
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public override async Task<RoleDto> Create(CreateRoleDto input)
         {
             CheckCreatePermission();
@@ -48,20 +55,12 @@ namespace MyProject.Roles
 
             return MapToEntityDto(role);
         }
-
-        public async Task<ListResultDto<RoleListDto>> GetRolesAsync(GetRolesInput input)
-        {
-            var roles = await _roleManager
-                .Roles
-                .WhereIf(
-                    !input.Permission.IsNullOrWhiteSpace(),
-                    r => r.Permissions.Any(rp => rp.Name == input.Permission && rp.IsGranted)
-                )
-                .ToListAsync();
-
-            return new ListResultDto<RoleListDto>(ObjectMapper.Map<List<RoleListDto>>(roles));
-        }
-
+        
+        /// <summary>
+        /// 更新
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public override async Task<RoleDto> Update(RoleDto input)
         {
             CheckUpdatePermission();
@@ -82,6 +81,11 @@ namespace MyProject.Roles
             return MapToEntityDto(role);
         }
 
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public override async Task Delete(EntityDto<int> input)
         {
             CheckDeletePermission();
@@ -97,6 +101,10 @@ namespace MyProject.Roles
             CheckErrors(await _roleManager.DeleteAsync(role));
         }
 
+        /// <summary>
+        /// 获取所有权限
+        /// </summary>
+        /// <returns></returns>
         public Task<ListResultDto<PermissionDto>> GetAllPermissions()
         {
             var permissions = PermissionManager.GetAllPermissions();
@@ -106,6 +114,10 @@ namespace MyProject.Roles
             ));
         }
 
+        /// <summary>
+        /// 获取权限树
+        /// </summary>
+        /// <returns></returns>
         public Task<ListResultDto<PermissionDto>> GetAllPermissionsTree()
         {
             var permissions = PermissionManager.GetAllPermissions().Where(p => p.Parent == null);
@@ -113,6 +125,19 @@ namespace MyProject.Roles
             return Task.FromResult(new ListResultDto<PermissionDto>(
                 ObjectMapper.Map<List<PermissionDto>>(permissions)
             ));
+        }
+
+        public async Task<ListResultDto<RoleListDto>> GetRolesAsync(GetRolesInput input)
+        {
+            var roles = await _roleManager
+                .Roles
+                .WhereIf(
+                    !input.Permission.IsNullOrWhiteSpace(),
+                    r => r.Permissions.Any(rp => rp.Name == input.Permission && rp.IsGranted)
+                )
+                .ToListAsync();
+
+            return new ListResultDto<RoleListDto>(ObjectMapper.Map<List<RoleListDto>>(roles));
         }
 
         protected override IQueryable<Role> CreateFilteredQuery(PagedResultRequestDto input)
@@ -135,6 +160,11 @@ namespace MyProject.Roles
             identityResult.CheckErrors(LocalizationManager);
         }
 
+        /// <summary>
+        /// 获取修改
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public async Task<GetRoleForEditOutput> GetRoleForEdit(EntityDto input)
         {
             var permissions = PermissionManager.GetAllPermissions();
@@ -148,6 +178,19 @@ namespace MyProject.Roles
                 Permissions = ObjectMapper.Map<List<FlatPermissionDto>>(permissions).OrderBy(p => p.DisplayName).ToList(),
                 GrantedPermissionNames = grantedPermissions.Select(p => p.Name).ToList()
             };
+        }
+
+        /// <summary>
+        /// 获取角色列表
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public async Task<PagedResultDto<RoleDto>> GetRolesIndexList(PagedAndFilterInputDto input)
+        {
+            var query = _roleManager.Roles.WhereIf(!string.IsNullOrWhiteSpace(input.Filter), p => p.DisplayName.Contains(input.Filter));
+            var count = await query.CountAsync();
+            var list = await query.OrderByDescending(p => p.LastModificationTime).PageBy(input).ToListAsync();
+            return new PagedResultDto<RoleDto>(count, list.MapTo<List<RoleDto>>());
         }
     }
 }

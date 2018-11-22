@@ -25,6 +25,6 @@ namespace MyProject.Users
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        Task<PagedResultDto<UserListDto>> GetUsers(PagedAndFilterInputDto input);
+        Task<PagedResultDto<UserListDto>> GetUsersIndexList(PagedAndFilterInputDto input);
     }
 }

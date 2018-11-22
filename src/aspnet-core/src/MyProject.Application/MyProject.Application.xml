@@ -312,6 +312,79 @@
         <member name="F:MyProject.Net.MimeTypes.MimeTypeNames.ApplicationZip">
             <summary>ZIP archive files; Registered[7]</summary>
         </member>
+        <member name="M:MyProject.Roles.IRoleAppService.GetAllPermissions">
+            <summary>
+            获取所有权限
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MyProject.Roles.IRoleAppService.GetAllPermissionsTree">
+            <summary>
+            获取权限树
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MyProject.Roles.IRoleAppService.GetRoleForEdit(Abp.Application.Services.Dto.EntityDto)">
+            <summary>
+            获取修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyProject.Roles.IRoleAppService.GetRolesIndexList(MyProject.Dto.Paged.PagedAndFilterInputDto)">
+            <summary>
+            获取角色列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyProject.Roles.RoleAppService.Create(MyProject.Roles.Dto.CreateRoleDto)">
+            <summary>
+            新增
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyProject.Roles.RoleAppService.Update(MyProject.Roles.Dto.RoleDto)">
+            <summary>
+            更新
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyProject.Roles.RoleAppService.Delete(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            删除
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyProject.Roles.RoleAppService.GetAllPermissions">
+            <summary>
+            获取所有权限
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MyProject.Roles.RoleAppService.GetAllPermissionsTree">
+            <summary>
+            获取权限树
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MyProject.Roles.RoleAppService.GetRoleForEdit(Abp.Application.Services.Dto.EntityDto)">
+            <summary>
+            获取修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyProject.Roles.RoleAppService.GetRolesIndexList(MyProject.Dto.Paged.PagedAndFilterInputDto)">
+            <summary>
+            获取角色列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
         <member name="T:MyProject.Sys.OrganizationUnits.Dto.CreateOrUpdateOrganizationUnitInput">
             <summary>
             创建或修改组织架构-传入
@@ -628,7 +701,7 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:MyProject.Users.IUserAppService.GetUsers(MyProject.Dto.Paged.PagedAndFilterInputDto)">
+        <member name="M:MyProject.Users.IUserAppService.GetUsersIndexList(MyProject.Dto.Paged.PagedAndFilterInputDto)">
             <summary>
             获取用户列表
             </summary>
@@ -642,7 +715,7 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:MyProject.Users.UserAppService.GetUsers(MyProject.Dto.Paged.PagedAndFilterInputDto)">
+        <member name="M:MyProject.Users.UserAppService.GetUsersIndexList(MyProject.Dto.Paged.PagedAndFilterInputDto)">
             <summary>
             获取用户列表
             </summary>
