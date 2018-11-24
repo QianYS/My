@@ -61,19 +61,19 @@ namespace MyProject.Roles
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public override async Task<RoleDto> Update(RoleDto input)
+        public async Task<RoleDto> UpdateRole(CreateOrUpdateInput input)
         {
             CheckUpdatePermission();
 
-            var role = await _roleManager.GetRoleByIdAsync(input.Id);
+            var role = await _roleManager.GetRoleByIdAsync(input.Role.Id);
 
-            ObjectMapper.Map(input, role);
+            ObjectMapper.Map(input.Role, role);
 
             CheckErrors(await _roleManager.UpdateAsync(role));
 
             var grantedPermissions = PermissionManager
                 .GetAllPermissions()
-                .Where(p => input.Permissions.Contains(p.Name))
+                .Where(p => input.GrantedPermissionNames.Contains(p.Name))
                 .ToList();
 
             await _roleManager.SetGrantedPermissionsAsync(role, grantedPermissions);
@@ -192,5 +192,7 @@ namespace MyProject.Roles
             var list = await query.OrderByDescending(p => p.LastModificationTime).PageBy(input).ToListAsync();
             return new PagedResultDto<RoleDto>(count, list.MapTo<List<RoleDto>>());
         }
+
+
     }
 }

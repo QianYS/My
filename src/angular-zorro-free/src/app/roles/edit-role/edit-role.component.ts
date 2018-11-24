@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Injector } from '@angular/core';
 import { ModalComponentBase } from '@shared/component-base/modal-component-base';
 import {
-  RoleDto,
+  GetRoleForEditOutput,
   ListResultDtoOfPermissionDto,
   RoleServiceProxy,
   PermissionDto,
@@ -22,7 +22,7 @@ export class EditRoleComponent extends ModalComponentBase implements OnInit {
   @Input()
   id: number;
   permissions: ListResultDtoOfPermissionDto = null;
-  role: RoleDto = null;
+  role: GetRoleForEditOutput = null;
   permissionList: NzTreeNodeOptions[];
   array = [];
   tmpPermissions: string[] = [];
@@ -32,11 +32,10 @@ export class EditRoleComponent extends ModalComponentBase implements OnInit {
 
   ngOnInit() {
     this._roleService
-      .get(this.id)
+      .getRoleForEdit(this.id)
       .finally(() => {})
-      .subscribe((result: RoleDto) => {
+      .subscribe((result: GetRoleForEditOutput) => {
         this.role = result;
-
         this.fetchData();
       });
   }
@@ -61,20 +60,22 @@ export class EditRoleComponent extends ModalComponentBase implements OnInit {
   getChecked(data: any[]): void {
     data.forEach(item => {
       item.checked =
-        this.role.permissions.indexOf(item.key) != -1 ? true : false;
+        this.role.grantedPermissionNames.indexOf(item.key) != -1 ? true : false;
       if (item.children) {
         this.getChecked(item.children);
       }
     });
   }
 
-  checkPermission(permissionName: string): boolean {
-    return this.role.permissions.indexOf(permissionName) != -1;
-  }
+  // checkPermission(permissionName: string): boolean {
+  //   return this.role.grantedPermissionNames.indexOf(permissionName) != -1;
+  // }
 
   getSelectPermission(data: NzTreeNodeOptions): void {
     if (data.checked) {
-      this.tmpPermissions.push(data.key);
+      if (this.role.grantedPermissionNames.indexOf(data.key) == -1) {
+        this.role.grantedPermissionNames.push(data.key);
+      }
     }
     if (data.children) {
       data.children.forEach(itemItem => {
@@ -88,9 +89,10 @@ export class EditRoleComponent extends ModalComponentBase implements OnInit {
     this.permissionList.forEach(item => {
       this.getSelectPermission(item);
     });
-    this.role.permissions = this.tmpPermissions;
+    console.log(this.role.grantedPermissionNames);
+
     this._roleService
-      .update(this.role)
+      .updateRole(this.role)
       .finally(() => {
         this.saving = false;
       })

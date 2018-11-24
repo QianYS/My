@@ -331,6 +331,13 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="M:MyProject.Roles.IRoleAppService.UpdateRole(MyProject.Roles.Dto.CreateOrUpdateInput)">
+            <summary>
+            更新
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
         <member name="M:MyProject.Roles.IRoleAppService.GetRolesIndexList(MyProject.Dto.Paged.PagedAndFilterInputDto)">
             <summary>
             获取角色列表
@@ -345,7 +352,7 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:MyProject.Roles.RoleAppService.Update(MyProject.Roles.Dto.RoleDto)">
+        <member name="M:MyProject.Roles.RoleAppService.UpdateRole(MyProject.Roles.Dto.CreateOrUpdateInput)">
             <summary>
             更新
             </summary>

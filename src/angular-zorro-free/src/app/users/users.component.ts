@@ -40,7 +40,7 @@ export class UsersComponent extends PagedListingComponentBase<UserListDto> {
         if (result) {
           this._userService.delete(entity.id).subscribe(() => {
             abp.notify.info('Deleted User: ' + entity.fullName);
-            this.refresh();
+            this.search();
           });
         }
       },
@@ -55,7 +55,7 @@ export class UsersComponent extends PagedListingComponentBase<UserListDto> {
       })
       .subscribe(isSave => {
         if (isSave) {
-          this.refresh();
+          this.search();
         }
       });
   }
@@ -68,7 +68,7 @@ export class UsersComponent extends PagedListingComponentBase<UserListDto> {
       })
       .subscribe(isSave => {
         if (isSave) {
-          this.refresh();
+          this.search();
         }
       });
   }

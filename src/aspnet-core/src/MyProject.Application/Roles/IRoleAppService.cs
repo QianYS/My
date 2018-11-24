@@ -27,6 +27,13 @@ namespace MyProject.Roles
         /// <returns></returns>
         Task<GetRoleForEditOutput> GetRoleForEdit(EntityDto input);
 
+        /// <summary>
+        /// 更新
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        Task<RoleDto> UpdateRole(CreateOrUpdateInput input);
+
 
         Task<ListResultDto<RoleListDto>> GetRolesAsync(GetRolesInput input);
 

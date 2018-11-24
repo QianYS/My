@@ -17,8 +17,8 @@
           <!-- 角色名称 -->
           <nz-form-item>
             <nz-form-control nzHasFeedback>
-              <input nz-input name="name" #name="ngModel" [(ngModel)]="role.name" [placeholder]="l('Name')" [disabled]="role.isStatic"
-                required>
+              <input nz-input name="name" #name="ngModel" [(ngModel)]="role.role.name" [placeholder]="l('Name')"
+                [disabled]="role.isStatic" required>
               <nz-form-explain *ngIf="name.control.dirty&&name.control.errors">
                 <ng-container *ngIf="name.control.hasError('required')">{{l('CanNotNull')}}</ng-container>
               </nz-form-explain>
@@ -28,8 +28,8 @@
           <!-- 角色展示名称 -->
           <nz-form-item>
             <nz-form-control nzHasFeedback>
-              <input nz-input name="displayName" #displayName="ngModel" [(ngModel)]="role.displayName" [placeholder]="l('DisplayName')"
-                required>
+              <input nz-input name="displayName" #displayName="ngModel" [(ngModel)]="role.role.displayName"
+                [placeholder]="l('DisplayName')" required>
               <nz-form-explain *ngIf="displayName.control.dirty&&displayName.control.errors">
                 <ng-container *ngIf="displayName.control.hasError('required')">{{l('CanNotNull')}}</ng-container>
               </nz-form-explain>
@@ -39,7 +39,7 @@
           <!-- 角色介绍 -->
           <nz-form-item>
             <nz-form-control>
-              <input nz-input name="description" [(ngModel)]="role.description" [placeholder]="l('RoleDescription')">
+              <input nz-input name="description" [(ngModel)]="role.role.description" [placeholder]="l('RoleDescription')">
             </nz-form-control>
           </nz-form-item>
         </nz-tab>

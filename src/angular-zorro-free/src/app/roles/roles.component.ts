@@ -45,7 +45,7 @@ export class RolesComponent extends PagedListingComponentBase<RoleDto> {
             .delete(entity.id)
             .finally(() => {
               abp.notify.info('Deleted Role: ' + entity.displayName);
-              this.refresh();
+              this.search();
             })
             .subscribe(() => {});
         }
@@ -60,7 +60,7 @@ export class RolesComponent extends PagedListingComponentBase<RoleDto> {
       })
       .subscribe(isSave => {
         if (isSave) {
-          this.refresh();
+          this.search();
         }
       });
   }
@@ -72,7 +72,7 @@ export class RolesComponent extends PagedListingComponentBase<RoleDto> {
       })
       .subscribe(isSave => {
         if (isSave) {
-          this.refresh();
+          this.search();
         }
       });
   }
