@@ -16,6 +16,7 @@ import { UsersComponent } from '@app/users/users.component';
 import { RolesComponent } from '@app/roles/roles.component';
 import { LoginAttemptComponent } from '@app/sys/loginAttempt/loginAttempt.component';
 import { OrganizationUnitComponent } from '@app/sys/organizationUnit/organizationUnit.component';
+import { AuditLogComponent } from '@app/sys/auditLog/auditLog.component';
 
 import { CreateTenantComponent } from '@app/tenants/create-tenant/create-tenant.component';
 import { EditTenantComponent } from '@app/tenants/edit-tenant/edit-tenant.component';
@@ -25,6 +26,8 @@ import { CreateUserComponent } from '@app/users/create-user/create-user.componen
 import { EditUserComponent } from '@app/users/edit-user/edit-user.component';
 import { CreateOrganizationUnitComponent } from '@app/sys/organizationUnit/create-organizationUnit/create-organizationUnit.component';
 import { EditOrganizationUnitComponent } from '@app/sys/organizationUnit/edit-organizationUnit/edit-organizationUnit.component';
+import { CheckAuditLogComponent } from '@app/sys/auditLog/check-auditLog/check-auditLog.component';
+
 import { MenuService } from '@yoyo/theme';
 
 import { LookupModelUserComponent } from '@app/users/lookupModel-user/lookupModel-user-component';
@@ -51,6 +54,7 @@ import { LookupModelUserComponent } from '@app/users/lookupModel-user/lookupMode
     RolesComponent,
     LoginAttemptComponent,
     OrganizationUnitComponent,
+    AuditLogComponent,
     CreateTenantComponent,
     EditTenantComponent,
     CreateRoleComponent,
@@ -59,6 +63,7 @@ import { LookupModelUserComponent } from '@app/users/lookupModel-user/lookupMode
     EditUserComponent,
     CreateOrganizationUnitComponent,
     EditOrganizationUnitComponent,
+    CheckAuditLogComponent,
 
     LookupModelUserComponent,
   ],
@@ -71,9 +76,10 @@ import { LookupModelUserComponent } from '@app/users/lookupModel-user/lookupMode
     EditUserComponent,
     CreateOrganizationUnitComponent,
     EditOrganizationUnitComponent,
+    CheckAuditLogComponent,
 
-    LookupModelUserComponent
+    LookupModelUserComponent,
   ],
   providers: [LocalizationService, MenuService],
 })
-export class AppModule { }
+export class AppModule {}

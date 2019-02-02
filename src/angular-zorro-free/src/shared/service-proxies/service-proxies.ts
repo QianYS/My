@@ -141,6 +141,148 @@ export class AccountServiceProxy {
 }
 
 @Injectable()
+export class AuditLogServiceProxy {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl ? baseUrl : "";
+    }
+
+    /**
+     * 获取列表页内容
+     * @param status (optional) 状态
+     * @param startTime (optional) 时间范围-起
+     * @param endTime (optional) 时间范围-终
+     * @param serviceName (optional) 服务
+     * @param userName (optional) 用户
+     * @param skipCount (optional) 
+     * @param maxResultCount (optional) 
+     * @return Success
+     */
+    getIndex(status: number | null | undefined, startTime: moment.Moment | null | undefined, endTime: moment.Moment | null | undefined, serviceName: string | null | undefined, userName: string | null | undefined, skipCount: number | null | undefined, maxResultCount: number | null | undefined): Observable<PagedResultDtoOfAuditLogShowIndexDto> {
+        let url_ = this.baseUrl + "/api/services/app/AuditLog/GetIndex?";
+        if (status !== undefined)
+            url_ += "Status=" + encodeURIComponent("" + status) + "&"; 
+        if (startTime !== undefined)
+            url_ += "StartTime=" + encodeURIComponent(startTime ? "" + startTime.toJSON() : "") + "&"; 
+        if (endTime !== undefined)
+            url_ += "EndTime=" + encodeURIComponent(endTime ? "" + endTime.toJSON() : "") + "&"; 
+        if (serviceName !== undefined)
+            url_ += "ServiceName=" + encodeURIComponent("" + serviceName) + "&"; 
+        if (userName !== undefined)
+            url_ += "UserName=" + encodeURIComponent("" + userName) + "&"; 
+        if (skipCount !== undefined)
+            url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&"; 
+        if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetIndex(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetIndex(<any>response_);
+                } catch (e) {
+                    return <Observable<PagedResultDtoOfAuditLogShowIndexDto>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<PagedResultDtoOfAuditLogShowIndexDto>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processGetIndex(response: HttpResponseBase): Observable<PagedResultDtoOfAuditLogShowIndexDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? PagedResultDtoOfAuditLogShowIndexDto.fromJS(resultData200) : new PagedResultDtoOfAuditLogShowIndexDto();
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<PagedResultDtoOfAuditLogShowIndexDto>(<any>null);
+    }
+
+    /**
+     * 获取修改
+     * @param id (optional) 
+     * @return Success
+     */
+    getFroEdit(id: number | null | undefined): Observable<AuditLogDetailDto> {
+        let url_ = this.baseUrl + "/api/services/app/AuditLog/GetFroEdit?";
+        if (id !== undefined)
+            url_ += "Id=" + encodeURIComponent("" + id) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetFroEdit(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetFroEdit(<any>response_);
+                } catch (e) {
+                    return <Observable<AuditLogDetailDto>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<AuditLogDetailDto>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processGetFroEdit(response: HttpResponseBase): Observable<AuditLogDetailDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? AuditLogDetailDto.fromJS(resultData200) : new AuditLogDetailDto();
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<AuditLogDetailDto>(<any>null);
+    }
+}
+
+@Injectable()
 export class ConfigurationServiceProxy {
     private http: HttpClient;
     private baseUrl: string;
@@ -2815,6 +2957,271 @@ export class RegisterOutput implements IRegisterOutput {
 
 export interface IRegisterOutput {
     canLogin: boolean | undefined;
+}
+
+export class PagedResultDtoOfAuditLogShowIndexDto implements IPagedResultDtoOfAuditLogShowIndexDto {
+    totalCount: number | undefined;
+    items: AuditLogShowIndexDto[] | undefined;
+
+    constructor(data?: IPagedResultDtoOfAuditLogShowIndexDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.totalCount = data["totalCount"];
+            if (data["items"] && data["items"].constructor === Array) {
+                this.items = [];
+                for (let item of data["items"])
+                    this.items.push(AuditLogShowIndexDto.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): PagedResultDtoOfAuditLogShowIndexDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new PagedResultDtoOfAuditLogShowIndexDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["totalCount"] = this.totalCount;
+        if (this.items && this.items.constructor === Array) {
+            data["items"] = [];
+            for (let item of this.items)
+                data["items"].push(item.toJSON());
+        }
+        return data; 
+    }
+
+    clone(): PagedResultDtoOfAuditLogShowIndexDto {
+        const json = this.toJSON();
+        let result = new PagedResultDtoOfAuditLogShowIndexDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IPagedResultDtoOfAuditLogShowIndexDto {
+    totalCount: number | undefined;
+    items: AuditLogShowIndexDto[] | undefined;
+}
+
+/** 日志列表页Dto */
+export class AuditLogShowIndexDto implements IAuditLogShowIndexDto {
+    /** 时间 */
+    executionTime: moment.Moment | undefined;
+    /** 用户名 */
+    userName: string | undefined;
+    /** 服务名 */
+    serviceName: string | undefined;
+    /** 操作 */
+    methodName: string | undefined;
+    /** 持续时间 */
+    executionDuration: string | undefined;
+    /** IP地址 */
+    clientIpAddress: string | undefined;
+    /** 客户端 */
+    clientName: string | undefined;
+    /** 浏览器 */
+    browserInfo: string | undefined;
+    /** 详情 */
+    exception: string | undefined;
+    id: number | undefined;
+
+    constructor(data?: IAuditLogShowIndexDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.executionTime = data["executionTime"] ? moment(data["executionTime"].toString()) : <any>undefined;
+            this.userName = data["userName"];
+            this.serviceName = data["serviceName"];
+            this.methodName = data["methodName"];
+            this.executionDuration = data["executionDuration"];
+            this.clientIpAddress = data["clientIpAddress"];
+            this.clientName = data["clientName"];
+            this.browserInfo = data["browserInfo"];
+            this.exception = data["exception"];
+            this.id = data["id"];
+        }
+    }
+
+    static fromJS(data: any): AuditLogShowIndexDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new AuditLogShowIndexDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["executionTime"] = this.executionTime ? this.executionTime.toISOString() : <any>undefined;
+        data["userName"] = this.userName;
+        data["serviceName"] = this.serviceName;
+        data["methodName"] = this.methodName;
+        data["executionDuration"] = this.executionDuration;
+        data["clientIpAddress"] = this.clientIpAddress;
+        data["clientName"] = this.clientName;
+        data["browserInfo"] = this.browserInfo;
+        data["exception"] = this.exception;
+        data["id"] = this.id;
+        return data; 
+    }
+
+    clone(): AuditLogShowIndexDto {
+        const json = this.toJSON();
+        let result = new AuditLogShowIndexDto();
+        result.init(json);
+        return result;
+    }
+}
+
+/** 日志列表页Dto */
+export interface IAuditLogShowIndexDto {
+    /** 时间 */
+    executionTime: moment.Moment | undefined;
+    /** 用户名 */
+    userName: string | undefined;
+    /** 服务名 */
+    serviceName: string | undefined;
+    /** 操作 */
+    methodName: string | undefined;
+    /** 持续时间 */
+    executionDuration: string | undefined;
+    /** IP地址 */
+    clientIpAddress: string | undefined;
+    /** 客户端 */
+    clientName: string | undefined;
+    /** 浏览器 */
+    browserInfo: string | undefined;
+    /** 详情 */
+    exception: string | undefined;
+    id: number | undefined;
+}
+
+/** 日志详情Dto */
+export class AuditLogDetailDto implements IAuditLogDetailDto {
+    /** 用户名 */
+    userFullName: string | undefined;
+    /** 详情描述 */
+    exception: string | undefined;
+    /** 浏览器信息 */
+    browserInfo: string | undefined;
+    /** 客户端名称 */
+    clientName: string | undefined;
+    /** IP地址 */
+    clientIpAddress: string | undefined;
+    /** 持续时间 */
+    executionDuration: number | undefined;
+    /** 发生时间 */
+    executionTime: moment.Moment | undefined;
+    /** 操作名 */
+    methodName: string | undefined;
+    /** 服务名 */
+    serviceName: string | undefined;
+    /** 参数 */
+    parameters: string | undefined;
+    /** 数据 */
+    customData: string | undefined;
+    id: number | undefined;
+
+    constructor(data?: IAuditLogDetailDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.userFullName = data["userFullName"];
+            this.exception = data["exception"];
+            this.browserInfo = data["browserInfo"];
+            this.clientName = data["clientName"];
+            this.clientIpAddress = data["clientIpAddress"];
+            this.executionDuration = data["executionDuration"];
+            this.executionTime = data["executionTime"] ? moment(data["executionTime"].toString()) : <any>undefined;
+            this.methodName = data["methodName"];
+            this.serviceName = data["serviceName"];
+            this.parameters = data["parameters"];
+            this.customData = data["customData"];
+            this.id = data["id"];
+        }
+    }
+
+    static fromJS(data: any): AuditLogDetailDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new AuditLogDetailDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["userFullName"] = this.userFullName;
+        data["exception"] = this.exception;
+        data["browserInfo"] = this.browserInfo;
+        data["clientName"] = this.clientName;
+        data["clientIpAddress"] = this.clientIpAddress;
+        data["executionDuration"] = this.executionDuration;
+        data["executionTime"] = this.executionTime ? this.executionTime.toISOString() : <any>undefined;
+        data["methodName"] = this.methodName;
+        data["serviceName"] = this.serviceName;
+        data["parameters"] = this.parameters;
+        data["customData"] = this.customData;
+        data["id"] = this.id;
+        return data; 
+    }
+
+    clone(): AuditLogDetailDto {
+        const json = this.toJSON();
+        let result = new AuditLogDetailDto();
+        result.init(json);
+        return result;
+    }
+}
+
+/** 日志详情Dto */
+export interface IAuditLogDetailDto {
+    /** 用户名 */
+    userFullName: string | undefined;
+    /** 详情描述 */
+    exception: string | undefined;
+    /** 浏览器信息 */
+    browserInfo: string | undefined;
+    /** 客户端名称 */
+    clientName: string | undefined;
+    /** IP地址 */
+    clientIpAddress: string | undefined;
+    /** 持续时间 */
+    executionDuration: number | undefined;
+    /** 发生时间 */
+    executionTime: moment.Moment | undefined;
+    /** 操作名 */
+    methodName: string | undefined;
+    /** 服务名 */
+    serviceName: string | undefined;
+    /** 参数 */
+    parameters: string | undefined;
+    /** 数据 */
+    customData: string | undefined;
+    id: number | undefined;
 }
 
 export class ChangeUiThemeInput implements IChangeUiThemeInput {

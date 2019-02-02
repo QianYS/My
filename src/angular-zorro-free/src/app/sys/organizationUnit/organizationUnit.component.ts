@@ -9,6 +9,7 @@ import {
   PagedResultDtoOfOrganizationUnitUserDto,
   OrganizationUnitUserDto,
   UserServiceProxy,
+  UsersToOrganizationUnitInput,
 } from '@shared/service-proxies/service-proxies';
 import {
   NzDropdownContextComponent,
@@ -29,10 +30,11 @@ import { stringify } from '@angular/core/src/render3/util';
   styles: [],
 })
 export class OrganizationUnitComponent extends PagedListingComponentBase<
-OrganizationUnitUserDto
+  OrganizationUnitUserDto
 > {
   @ViewChild('treeCom')
   treeCom: NzTreeComponent;
+  activedNode: NzTreeNode;
   dropdown: NzDropdownContextComponent;
   // actived node
   selectedNodeKey: string = null; //（用于获取该组织架构中用户）
@@ -75,6 +77,15 @@ OrganizationUnitUserDto
 
   //选中组织架构节点
   activeNode(data: NzFormatEmitEvent): void {
+    if (this.activedNode) {
+      // delete selectedNodeList(u can do anything u want)
+      this.treeCom.nzTreeService.setSelectedNodeList(this.activedNode);
+    }
+    data.node.isSelected = true;
+    this.activedNode = data.node;
+    // add selectedNodeList
+    this.treeCom.nzTreeService.setSelectedNodeList(this.activedNode);
+
     this.selectedNodeKey = data.node.key.toString(); //选中节点编号（用于获取该组织架构中用户）
     this.GetUser();
   }
@@ -101,6 +112,7 @@ OrganizationUnitUserDto
         this.finishedCallbackThis();
       })
       .subscribe((result: PagedResultDtoOfOrganizationUnitUserDto) => {
+        console.log(result);
         this.dataList = result.items;
         this.totalItems = result.totalCount;
       });
@@ -156,23 +168,41 @@ OrganizationUnitUserDto
   }
 
   lookup(): void {
-    this.modalHelper
-      .open(
-        LookupModelUserComponent,
-        {
-          roleNameArray: []
-        },
-        'md',
-        {
-          nzMask: true,
-          nzClosable: false,
-        },
-      )
-      .subscribe(isSave => {
-        //console.log(isSave);
-        if (isSave) {
-          this.refresh();
-        }
+    if (this.selectedNodeKey == null || this.selectedNodeKey == '') {
+      abp.notify.warn('请先选择一个组织架构！');
+    } else {
+      this.modalHelper
+        .open(
+          LookupModelUserComponent,
+          {
+            roleNameArray: [],
+          },
+          'md',
+          {
+            nzMask: true,
+            nzClosable: false,
+          },
+        )
+        .subscribe(isSave => {
+          let userIdArray: number[] = [];
+          if (isSave) {
+            userIdArray.push(Number(isSave.value));
+            this.addUser(userIdArray);
+          }
+        });
+    }
+  }
+
+  addUser(userIdArray: number[]): void {
+    let input = new UsersToOrganizationUnitInput();
+    input.userIds = userIdArray;
+    input.organizationUnitCode = this.selectedNodeKey;
+    console.log(input);
+    this._organizationUnitService
+      .addUsers(input)
+      .finally(() => {})
+      .subscribe(() => {
+        this.GetUser();
       });
   }
 }

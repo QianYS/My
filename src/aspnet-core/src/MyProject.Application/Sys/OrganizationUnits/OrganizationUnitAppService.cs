@@ -142,7 +142,7 @@ namespace MyProject.Sys.OrganizationUnits
                             {
                                 Id = a.Id,
                                 UserId = a.UserId,
-                                Name = b.Name,
+                                Name = b.Name+' '+ b.Surname,
                                 UserName = b.UserName,
                                 OrganizationUnitCode = c.Code,
                                 AddedTime = a.CreationTime

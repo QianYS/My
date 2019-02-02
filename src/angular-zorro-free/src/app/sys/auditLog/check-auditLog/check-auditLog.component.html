@@ -3,7 +3,69 @@
   <h3>
     <span>日志详情</span>
   </h3>
-  <div>测试内容</div>
+  <div>
+    <h4>用户信息</h4>
+    <small>
+      <div>
+        <div nz-row class="detailRow">
+          <div nz-col nzSpan="4">用户名：</div>
+          <div nz-col nzSpan="20">{{auditLog.userFullName}}</div>
+        </div>
+        <div nz-row class="detailRow">
+          <div nz-col nzSpan="4">IP地址：</div>
+          <div nz-col nzSpan="20">{{auditLog.clientIpAddress}}</div>
+        </div>
+        <div nz-row class="detailRow">
+          <div nz-col nzSpan="4">客户端：</div>
+          <div nz-col nzSpan="20">{{auditLog.clientName}}</div>
+        </div>
+        <div nz-row class="detailRow">
+          <div nz-col nzSpan="4">浏览器：</div>
+          <div nz-col nzSpan="20">{{auditLog.browserInfo}}</div>
+        </div>
+      </div>
+    </small>
+    <h4>操作信息</h4>
+    <small>
+      <div nz-row>
+        <div nz-row class="detailRow">
+          <div nz-col nzSpan="4">服务：</div>
+          <div nz-col nzSpan="20">{{auditLog.serviceName}}</div>
+        </div>
+        <div nz-row class="detailRow">
+          <div nz-col nzSpan="4">操作：</div>
+          <div nz-col nzSpan="20">{{auditLog.methodName}}</div>
+        </div>
+        <div nz-row class="detailRow">
+          <div nz-col nzSpan="4">时间：</div>
+          <div nz-col nzSpan="20">{{auditLog.executionTime|date:'yyyy-MM-dd hh:mm:ss'}}</div>
+        </div>
+        <div nz-row class="detailRow">
+          <div nz-col nzSpan="4">持续时间：</div>
+          <div nz-col nzSpan="20">{{auditLog.executionDuration}}ms</div>
+        </div>
+        <div nz-row class="detailRow">
+          <div nz-col nzSpan="4">参数：</div>
+          <div nz-col nzSpan="20">{{ auditLog.parameters }}</div>
+        </div>
+      </div>
+    </small>
+
+    <h4>数据</h4>
+    <small>
+      <div class="detailRow">
+        <p>{{auditLog.customData}}</p>
+      </div>
+    </small>
+
+    <h3>操作状态</h3>
+    <small>
+      <div class="detailRow">
+        <p>{{auditLog.exception}}</p>
+      </div>
+    </small>
+
+  </div>
 
 
   <!-- 功能按钮 -->
@@ -15,3 +77,10 @@
     </div>
   </div>
 </div>
+
+<style type="text/css">
+  .detailRow {
+    margin-bottom: 5px;
+  }
+
+</style>

@@ -1,24 +1,52 @@
-<div class="padding-bottom-45">
+<div class="padding-bottom-20">
 
-  <h3>
-    <span>选择用户</span>
-  </h3>
-  <nz-table #ajaxTable nzShowSizeChanger [nzData]="dataList" [nzTotal]="totalItems" [(nzPageIndex)]="pageNumber"
-    [(nzPageSize)]="pageSize" [nzLoading]="isTableLoading" (nzPageIndexChange)="refresh()" (nzPageSizeChange)="refresh()"
-    [nzFrontPagination]="false">
-    <thead>
-      <tr>
-        <th>姓名</th>
-        <th>操作</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of ajaxTable.data">
-        <td>{{item.name}}</td>
-        <td>
-          <a (click)="choose(item)">选择</a>
-        </td>
-      </tr>
-    </tbody>
-  </nz-table>
+  <div>
+    <h3>
+      <span>选择用户</span>
+    </h3>
+  </div>
+  <div>
+    <nz-input-group nzSearch [nzSuffix]="suffixIconButton">
+      <input type="text" nz-input placeholder="请输入关键词" [(ngModel)]="filter">
+    </nz-input-group>
+    <ng-template #suffixIconButton>
+      <button nz-button nzType="primary" nzSearch (click)="getUserChooseList()"><i class="anticon" class="anticon anticon-search"></i></button>
+    </ng-template>
+  </div>
+
+  <div>
+    <nz-table #ajaxTable nzShowSizeChanger [nzData]="dataList" [nzTotal]="totalItems" [(nzPageIndex)]="pageNumber"
+      [(nzPageSize)]="pageSize" [nzLoading]="isTableLoading" (nzPageIndexChange)="refresh()" (nzPageSizeChange)="refresh()"
+      [nzFrontPagination]="false" class="padding-bottom-45">
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of ajaxTable.data">
+          <td>{{item.name}}</td>
+          <td>
+            <a (click)="choose(item)">选择</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+  <div style="height:45px">
+    <!-- 功能按钮 -->
+    <div class="custom-modal-footer">
+      <div class="custom-modal-footter-group">
+        <button nz-button type="button" (click)="close()">
+          取消
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+
+
 </div>

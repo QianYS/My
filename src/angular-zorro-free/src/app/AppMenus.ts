@@ -41,6 +41,8 @@ export class AppMenus {
         'anticon anticon-team',
         '/app/sys/organizationUnit',
       ),
+      // 日志管理
+      new MenuItem('日志管理', '', 'anticon anticon-file', '/app/sys/auditLog'),
     ]),
 
     // 关于我们

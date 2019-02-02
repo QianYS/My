@@ -8,17 +8,15 @@
       <i class="anticon anticon-reload"></i>
     </button>
   </ng-template>
-
-
   <nz-table #ajaxTable nzShowSizeChanger [nzData]="dataList" [nzTotal]="totalItems" [(nzPageIndex)]="pageNumber"
     [(nzPageSize)]="pageSize" [nzLoading]="isTableLoading" (nzPageIndexChange)="refresh()" (nzPageSizeChange)="refresh()"
     [nzFrontPagination]="false">
     <thead>
       <tr>
-        <th>{{l("result")}}</th>
-        <th>{{l("browserInfo")}}</th>
-        <th>{{l("userNameOrEmailAddress")}}</th>
-        <th>{{l("creationTime")}}</th>
+        <th style="min-width:140px;">结果状态</th>
+        <th style="max-width:600px;">浏览器信息</th>
+        <th style="min-width:200px;">用户/邮箱</th>
+        <th style="min-width:200px;">时间</th>
       </tr>
     </thead>
     <tbody>
@@ -26,9 +24,8 @@
         <td>{{item.result}}</td>
         <td>{{item.browserInfo}}</td>
         <td>{{item.userNameOrEmailAddress}}</td>
-        <td>{{item.creationTime}}</td>
+        <td>{{item.creationTime | date:'yyyy-MM-dd'}}</td>
       </tr>
     </tbody>
   </nz-table>
-
 </nz-card>

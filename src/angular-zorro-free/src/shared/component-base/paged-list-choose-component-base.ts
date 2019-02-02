@@ -93,6 +93,7 @@ export abstract class PagedListChooseComponentBase<EntityDto>
    */
   constructor(injector: Injector) {
     super(injector);
+    this.nzModalRef = injector.get(NzModalRef);
   }
 
   ngOnInit(): void {

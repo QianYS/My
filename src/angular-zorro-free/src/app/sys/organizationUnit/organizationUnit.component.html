@@ -3,23 +3,19 @@
   <div nz-col nzSpan="12">
     <nz-card [nzExtra]="extraTpl">
       <div nz-row>
-        <div nz-col nzSpan='21'>
+        <div nz-col nzSpan='16'>
           <h2>组织架构</h2>
         </div>
-        <div nz-col nzSpan='3'>
+        <div nz-col nzSpan='8'>
           <button nz-button (click)="refresh()" nzShape="circle">
             <i class="anticon anticon-reload"></i>
           </button>
-          <button nz-button (click)="createChild()" nzShape="circle" nzType="primary">
-            <i class="anticon anticon-plus"></i>
-          </button>
-          <button nz-button (click)="lookup()" nzShape="circle" nzType="primary">
-            <i class="anticon anticon-plus"></i>22222
+          <button nz-button (click)="createChild()" nzType="primary">
+            <i class="anticon anticon-plus"></i>新增组织架构
           </button>
         </div>
       </div>
-      <nz-tree [nzData]="organizationUnitList" nzMultiple="false" (nzClick)="activeNode($event)" nzExpandAll="true"
-        #treeCom>
+      <nz-tree [nzData]="organizationUnitList" nzMultiple="false" (nzClick)="activeNode($event)" #treeCom>
         <ng-template #contextTemplate>
           <ul nz-menu nzInDropDown>
             <li nz-menu-item (click)="createChild()">新增子节点</li>
@@ -28,17 +24,11 @@
           </ul>
         </ng-template>
         <ng-template #nzTreeTemplate let-node>
-          <span class="custom-node">
+          <span class="custom-node" style="cursor: pointer;">
             <span (contextmenu)="contextMenu($event,contextTemplate,node.key)">
               <i class="anticon" class="anticon anticon-team"></i>
-              <span class="folder-name">{{node.title}}</span>
-              <span class="folder-desc">{{node?.origin?.author | lowercase}}</span>
+              <span class="file-name" [class.active]="activedNode?.key===node.key">{{node.title}}</span>
             </span>
-            <!-- <span *ngIf="false">
-              <i class="anticon anticon-file"></i>
-              <span class="file-name">{{node.title}}</span>
-              <span class="file-desc">{{node?.origin?.author | lowercase}}</span>
-            </span> -->
           </span>
         </ng-template>
       </nz-tree>
@@ -47,15 +37,15 @@
   <div nz-col nzSpan="12">
     <nz-card>
       <div nz-row>
-        <div nz-col nzSpan='21'>
+        <div nz-col nzSpan='16'>
           <h2>成员</h2>
         </div>
-        <div nz-col nzSpan='3'>
+        <div nz-col nzSpan='8'>
           <button nz-button (click)="refresh()" nzShape="circle">
             <i class="anticon anticon-reload"></i>
           </button>
-          <button nz-button (click)="create()" nzShape="circle" nzType="primary">
-            <i class="anticon anticon-plus"></i>
+          <button nz-button (click)="lookup()" nzType="primary">
+            <i class="anticon anticon-plus"></i>添加用户
           </button>
         </div>
       </div>
@@ -83,3 +73,19 @@
 
   </div>
 </div>
+
+<style type="text/css">
+  .custom-node {
+    cursor: pointer;
+    line-height: 24px;
+    display: inline-block;
+    margin: 0 -1000px;
+    padding: 0 1000px;
+  }
+
+  .active {
+    background: #1890ff;
+    color: #fff;
+  }
+
+</style>

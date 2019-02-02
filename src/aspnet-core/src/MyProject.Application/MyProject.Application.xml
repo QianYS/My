@@ -392,6 +392,176 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="M:MyProject.Sys.AuditLogs.AuditLogAppService.#ctor(Abp.Domain.Repositories.IRepository{Abp.Auditing.AuditLog,System.Int64},Abp.Domain.Repositories.IRepository{MyProject.Authorization.Users.User,System.Int64})">
+            <summary>
+            依赖注入
+            </summary>
+            <param name="auditLogRepository">日志表</param>
+            <param name="userRepository">用户表</param>
+        </member>
+        <member name="M:MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex(MyProject.Sys.AuditLogs.Dto.GetIndexInputDto)">
+            <summary>
+            获取列表页内容
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyProject.Sys.AuditLogs.AuditLogAppService.GetFroEdit(Abp.Application.Services.Dto.EntityDto)">
+            <summary>
+            获取修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MyProject.Sys.AuditLogs.Dto.AuditLogDetailDto">
+            <summary>
+            日志详情Dto
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogDetailDto.UserFullName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogDetailDto.Exception">
+            <summary>
+            详情描述
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogDetailDto.BrowserInfo">
+            <summary>
+            浏览器信息
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogDetailDto.ClientName">
+            <summary>
+            客户端名称
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogDetailDto.ClientIpAddress">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogDetailDto.ExecutionDuration">
+            <summary>
+            持续时间
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogDetailDto.ExecutionTime">
+            <summary>
+            发生时间
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogDetailDto.MethodName">
+            <summary>
+            操作名
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogDetailDto.ServiceName">
+            <summary>
+            服务名
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogDetailDto.Parameters">
+            <summary>
+            参数
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogDetailDto.CustomData">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="T:MyProject.Sys.AuditLogs.Dto.AuditLogShowIndexDto">
+            <summary>
+            日志列表页Dto
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogShowIndexDto.ExecutionTime">
+            <summary>
+            时间
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogShowIndexDto.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogShowIndexDto.ServiceName">
+            <summary>
+            服务名
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogShowIndexDto.MethodName">
+            <summary>
+            操作
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogShowIndexDto.ExecutionDuration">
+            <summary>
+            持续时间
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogShowIndexDto.ClientIpAddress">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogShowIndexDto.ClientName">
+            <summary>
+            客户端
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogShowIndexDto.BrowserInfo">
+            <summary>
+            浏览器
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.AuditLogShowIndexDto.Exception">
+            <summary>
+            详情
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.GetIndexInputDto.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.GetIndexInputDto.StartTime">
+            <summary>
+            时间范围-起
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.GetIndexInputDto.EndTime">
+            <summary>
+            时间范围-终
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.GetIndexInputDto.ServiceName">
+            <summary>
+            服务
+            </summary>
+        </member>
+        <member name="P:MyProject.Sys.AuditLogs.Dto.GetIndexInputDto.UserName">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="M:MyProject.Sys.AuditLogs.IAuditLogAppService.GetIndex(MyProject.Sys.AuditLogs.Dto.GetIndexInputDto)">
+            <summary>
+            获取列表页内容
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyProject.Sys.AuditLogs.IAuditLogAppService.GetFroEdit(Abp.Application.Services.Dto.EntityDto)">
+            <summary>
+            获取修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
         <member name="T:MyProject.Sys.OrganizationUnits.Dto.CreateOrUpdateOrganizationUnitInput">
             <summary>
             创建或修改组织架构-传入

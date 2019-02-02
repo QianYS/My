@@ -9,6 +9,7 @@ import { RolesComponent } from '@app/roles/roles.component';
 import { UsersComponent } from '@app/users/users.component';
 import { LoginAttemptComponent } from '@app/sys/loginAttempt/loginAttempt.component';
 import { OrganizationUnitComponent } from '@app/sys/organizationUnit/organizationUnit.component';
+import { AuditLogComponent } from '@app/sys/auditLog/auditLog.component';
 const routes: Routes = [
   {
     path: 'app',
@@ -50,6 +51,11 @@ const routes: Routes = [
           {
             path: 'organizationUnit',
             component: OrganizationUnitComponent,
+            canActivate: [AppRouteGuard],
+          },
+          {
+            path: 'auditLog',
+            component: AuditLogComponent,
             canActivate: [AppRouteGuard],
           },
         ],

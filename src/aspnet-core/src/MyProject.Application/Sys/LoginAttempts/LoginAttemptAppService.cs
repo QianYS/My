@@ -33,9 +33,10 @@ namespace MyProject.LoginAttempts
         public async Task<PagedResultDto<LoginAttemptShowIndexDto>> GetIndex(Sys.LoginAttempts.Dto.GetIndexInputDto input)
         {
             var query = _userLoginAttemptRepository.GetAll();
+            var x = query.ToList();
             var count = await query.CountAsync();
-            var list = query.OrderBy(p => p.Id).PageBy(input).ToList().MapTo<List<LoginAttemptShowIndexDto>>();
-            return new PagedResultDto<LoginAttemptShowIndexDto>(count, list);
+            var list = query.OrderBy(p => p.Id).PageBy(input).ToList();
+            return new PagedResultDto<LoginAttemptShowIndexDto>(count, list.MapTo<List<LoginAttemptShowIndexDto>>());
         }
     }
 }
