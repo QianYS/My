@@ -1,0 +1,43 @@
+<page-header ngtitle="日志管理"></page-header>
+
+
+<nz-card [nzExtra]="extraTpl">
+
+  <ng-template #extraTpl>
+    <button nz-button (click)="refresh()" nzShape="circle">
+      <i class="anticon anticon-reload"></i>
+    </button>
+  </ng-template>
+  <nz-table #ajaxTable nzShowSizeChanger [nzData]="dataList" [nzTotal]="totalItems" [(nzPageIndex)]="pageNumber"
+    [(nzPageSize)]="pageSize" [nzLoading]="isTableLoading" (nzPageIndexChange)="refresh()" (nzPageSizeChange)="refresh()"
+    [nzFrontPagination]="false">
+    <thead>
+      <tr>
+        <th>时间</th>
+        <th>用户名</th>
+        <th>服务</th>
+        <th>操作</th>
+        <th>持续时间</th>
+        <th>IP地址</th>
+        <th>客户端</th>
+        <th>浏览器</th>
+        <th>异常</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of ajaxTable.data">
+        <td>{{item.result}}</td>
+        <td>{{item.browserInfo}}</td>
+        <td>{{item.userNameOrEmailAddress}}</td>
+        <td>{{item.creationTime | date:'yyyy-MM-dd'}}</td>
+        <td>{{item.result}}</td>
+        <td>{{item.browserInfo}}</td>
+        <td>{{item.userNameOrEmailAddress}}</td>
+        <td>{{item.creationTime | date:'yyyy-MM-dd'}}</td>
+        <td>{{item.userNameOrEmailAddress}}</td>
+        <td>{{item.creationTime | date:'yyyy-MM-dd'}}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+</nz-card>
