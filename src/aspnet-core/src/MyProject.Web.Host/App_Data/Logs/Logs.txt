@@ -8829,3 +8829,359 @@ INFO  2019-02-02 15:27:52,261 [11   ] ore.Mvc.Internal.ControllerActionInvoker -
 INFO  2019-02-02 15:27:52,269 [11   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
 INFO  2019-02-02 15:27:52,286 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application) in 26049.8702ms
 INFO  2019-02-02 15:27:52,287 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 26177.8174ms 200 application/json; charset=utf-8
+INFO  2019-02-02 15:38:53,660 [42   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/AbpUserConfiguration/GetAll  
+INFO  2019-02-02 15:38:53,661 [42   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 15:38:53,661 [42   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.5388ms 204 
+INFO  2019-02-02 15:38:53,684 [41   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/AbpUserConfiguration/GetAll application/json 
+INFO  2019-02-02 15:38:53,685 [41   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 15:38:53,687 [41   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 15:38:53,694 [41   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpUserConfiguration", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore)
+INFO  2019-02-02 15:38:53,694 [41   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 15:38:53,696 [41   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore) - Validation state: Valid
+INFO  2019-02-02 15:38:53,705 [41   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.JsonResult in 9.2021ms.
+INFO  2019-02-02 15:38:53,713 [41   ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 15:38:53,714 [41   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore) in 19.4951ms
+INFO  2019-02-02 15:38:53,714 [41   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 29.888ms 200 application/json; charset=utf-8
+INFO  2019-02-02 15:38:53,735 [46   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/api/services/app/Session/GetCurrentLoginInformations  
+INFO  2019-02-02 15:38:53,736 [46   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 15:38:53,736 [46   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.5187ms 204 
+INFO  2019-02-02 15:38:53,742 [45   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/Session/GetCurrentLoginInformations application/json 
+INFO  2019-02-02 15:38:53,742 [45   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 15:38:53,743 [45   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 15:38:53,750 [45   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "GetCurrentLoginInformations", controller = "Session"}. Executing action MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application)
+INFO  2019-02-02 15:38:53,750 [45   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 15:38:53,755 [45   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application) - Validation state: Valid
+INFO  2019-02-02 15:38:53,763 [45   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 7.5219ms.
+INFO  2019-02-02 15:38:53,764 [45   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 15:38:53,765 [45   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application) in 14.592ms
+INFO  2019-02-02 15:38:53,765 [45   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 22.8902ms 200 application/json; charset=utf-8
+INFO  2019-02-02 15:38:54,003 [46   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/api/services/app/AuditLog/GetIndex?ServiceName=&UserName=&SkipCount=0&MaxResultCount=10  
+INFO  2019-02-02 15:38:54,003 [46   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 15:38:54,003 [46   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.4207ms 204 
+INFO  2019-02-02 15:38:54,156 [42   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/AuditLog/GetIndex?ServiceName=&UserName=&SkipCount=0&MaxResultCount=10 application/json 
+INFO  2019-02-02 15:38:54,156 [42   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 15:38:54,157 [42   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 15:38:54,164 [42   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "GetIndex", controller = "AuditLog"}. Executing action MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application)
+INFO  2019-02-02 15:38:54,165 [42   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 15:38:54,169 [42   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application) with arguments (MyProject.Sys.AuditLogs.Dto.GetIndexInputDto) - Validation state: Valid
+INFO  2019-02-02 15:38:54,169 [42   ] Project.Sys.AuditLogs.AuditLogAppService - 开始获取日志列表
+INFO  2019-02-02 15:38:54,171 [42   ] Project.Sys.AuditLogs.AuditLogAppService - 完成query2
+INFO  2019-02-02 15:38:54,172 [42   ] Project.Sys.AuditLogs.AuditLogAppService - 开始查询条件
+INFO  2019-02-02 15:38:54,172 [42   ] Project.Sys.AuditLogs.AuditLogAppService - 完成条件查询0
+INFO  2019-02-02 15:38:54,172 [42   ] Project.Sys.AuditLogs.AuditLogAppService - 开始查询数量
+INFO  2019-02-02 15:38:54,188 [41   ] Project.Sys.AuditLogs.AuditLogAppService - 完成数量查询16
+INFO  2019-02-02 15:38:54,188 [41   ] Project.Sys.AuditLogs.AuditLogAppService - 开始查询结果
+INFO  2019-02-02 15:38:54,217 [42   ] Project.Sys.AuditLogs.AuditLogAppService - 完成结果查询28
+INFO  2019-02-02 15:38:54,217 [42   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 47.4951ms.
+INFO  2019-02-02 15:38:54,225 [41   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 15:38:54,226 [41   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application) in 60.8039ms
+INFO  2019-02-02 15:38:54,226 [41   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 70.2309ms 200 application/json; charset=utf-8
+DEBUG 2019-02-02 16:01:47,376 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-02-02 16:01:47,406 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-02-02 16:01:47,432 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.Web.Host.Startup.MyProjectWebHostModule, MyProject.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-02 16:01:47,436 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectWebCoreModule, MyProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-02 16:01:47,437 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectApplicationModule, MyProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-02 16:01:47,437 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectCoreModule, MyProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-02 16:01:47,437 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-02 16:01:47,438 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-02 16:01:47,438 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-02 16:01:47,439 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-02 16:01:47,439 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.EntityFrameworkCore.MyProjectEntityFrameworkModule, MyProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-02 16:01:47,439 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-02 16:01:47,440 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-02 16:01:47,440 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-02 16:01:47,440 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-02 16:01:47,441 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-02 16:01:47,441 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-02 16:01:47,447 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-02-02 16:01:47,528 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-02 16:01:47,528 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-02 16:01:47,528 [1    ] o.Configuration.LanguageManagementConfig - Converted MyProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-02 16:01:47,528 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-02 16:01:47,860 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: MyProject.EntityFrameworkCore.MyProjectDbContext, MyProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-02 16:01:48,388 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-02-02 16:01:48,519 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-02-02 16:01:48,582 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-02-02 16:01:48,611 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: MyProject
+DEBUG 2019-02-02 16:01:48,645 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-02-02 16:01:48,682 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-02-02 16:01:48,731 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2019-02-02 16:01:48,731 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-02-02 16:01:48,741 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Users.Dto.CreateUserDto
+DEBUG 2019-02-02 16:01:48,742 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Users.Dto.UserDto
+DEBUG 2019-02-02 16:01:48,742 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Users.Dto.UserListDto
+DEBUG 2019-02-02 16:01:48,743 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.LoginAttempts.Dto.LoginAttemptShowIndexDto
+DEBUG 2019-02-02 16:01:48,743 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sys.OrganizationUnits.Dto.OrganizationUnitDto
+DEBUG 2019-02-02 16:01:48,743 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sys.OrganizationUnits.Dto.OrganizationUnitTreeDto
+DEBUG 2019-02-02 16:01:48,743 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-02-02 16:01:48,743 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-02-02 16:01:48,743 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.CreateRoleDto
+DEBUG 2019-02-02 16:01:48,743 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.PermissionDto
+DEBUG 2019-02-02 16:01:48,744 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.RoleDto
+DEBUG 2019-02-02 16:01:48,744 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.RoleEditDto
+DEBUG 2019-02-02 16:01:48,744 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-02-02 16:01:48,744 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.MultiTenancy.Dto.TenantDto
+INFO  2019-02-02 16:01:54,959 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-02-02 16:01:57,103 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host)
+INFO  2019-02-02 16:01:57,911 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host) - Validation state: Valid
+INFO  2019-02-02 16:01:57,918 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 4.3824ms.
+INFO  2019-02-02 16:01:58,663 [12   ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2019-02-02 16:01:58,758 [12   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host) in 1600.2149ms
+INFO  2019-02-02 16:01:59,085 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 4133.7462ms 302 
+INFO  2019-02-02 16:01:59,156 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2019-02-02 16:01:59,286 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 129.6257ms 200 text/html
+INFO  2019-02-02 16:02:00,444 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2019-02-02 16:02:00,501 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2019-02-02 16:02:00,529 [10   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-bundle.js was not modified
+INFO  2019-02-02 16:02:00,529 [12   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui.css was not modified
+INFO  2019-02-02 16:02:00,541 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 40.2295ms 304 application/javascript
+INFO  2019-02-02 16:02:00,541 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 97.1425ms 304 text/css
+INFO  2019-02-02 16:02:00,692 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2019-02-02 16:02:00,697 [13   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-standalone-preset.js was not modified
+INFO  2019-02-02 16:02:00,697 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 5.5454ms 304 application/javascript
+INFO  2019-02-02 16:02:00,988 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js  
+INFO  2019-02-02 16:02:00,991 [12   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger/ui/abp.js was not modified
+INFO  2019-02-02 16:02:00,991 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 3.8107ms 304 application/javascript
+INFO  2019-02-02 16:02:01,248 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.swagger.js  
+INFO  2019-02-02 16:02:01,248 [12   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger/ui/abp.swagger.js was not modified
+INFO  2019-02-02 16:02:01,248 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.6368ms 304 application/javascript
+INFO  2019-02-02 16:02:02,570 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2019-02-02 16:02:03,050 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 480.5301ms 200 application/json;charset=utf-8
+INFO  2019-02-02 16:04:53,116 [22   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/AbpUserConfiguration/GetAll  
+INFO  2019-02-02 16:04:53,134 [22   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:04:53,143 [22   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 27.5571ms 204 
+INFO  2019-02-02 16:04:53,150 [22   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/AbpUserConfiguration/GetAll application/json 
+INFO  2019-02-02 16:04:53,151 [22   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:04:53,262 [22   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 16:04:53,433 [28   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpUserConfiguration", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore)
+INFO  2019-02-02 16:04:53,433 [28   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:04:53,439 [28   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore) - Validation state: Valid
+INFO  2019-02-02 16:04:54,565 [30   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.JsonResult in 1124.8921ms.
+INFO  2019-02-02 16:04:54,614 [30   ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 16:04:54,658 [30   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore) in 1224.9704ms
+INFO  2019-02-02 16:04:54,658 [30   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1508.2552ms 200 application/json; charset=utf-8
+INFO  2019-02-02 16:04:54,675 [21   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/api/services/app/Session/GetCurrentLoginInformations  
+INFO  2019-02-02 16:04:54,675 [21   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:04:54,675 [21   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.493ms 204 
+INFO  2019-02-02 16:04:54,737 [21   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/Session/GetCurrentLoginInformations application/json 
+INFO  2019-02-02 16:04:54,737 [21   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:04:54,738 [21   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 16:04:54,761 [21   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "GetCurrentLoginInformations", controller = "Session"}. Executing action MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application)
+INFO  2019-02-02 16:04:54,761 [21   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:04:54,936 [21   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application) - Validation state: Valid
+INFO  2019-02-02 16:04:55,013 [31   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 76.9478ms.
+INFO  2019-02-02 16:04:55,033 [31   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 16:04:55,057 [31   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application) in 295.3163ms
+INFO  2019-02-02 16:04:55,057 [31   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 320.3996ms 200 application/json; charset=utf-8
+INFO  2019-02-02 16:05:01,164 [21   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/api/services/app/AuditLog/GetIndex?ServiceName=&UserName=&SkipCount=0&MaxResultCount=10  
+INFO  2019-02-02 16:05:01,164 [21   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:05:01,164 [21   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.3235ms 204 
+INFO  2019-02-02 16:05:01,261 [21   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/AuditLog/GetIndex?ServiceName=&UserName=&SkipCount=0&MaxResultCount=10 application/json 
+INFO  2019-02-02 16:05:01,262 [21   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:05:01,264 [21   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 16:05:01,372 [21   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "GetIndex", controller = "AuditLog"}. Executing action MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application)
+INFO  2019-02-02 16:05:01,372 [21   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:05:01,710 [21   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application) with arguments (MyProject.Sys.AuditLogs.Dto.GetIndexInputDto) - Validation state: Valid
+INFO  2019-02-02 16:05:01,714 [21   ] Project.Sys.AuditLogs.AuditLogAppService - 开始获取日志列表
+INFO  2019-02-02 16:05:01,725 [21   ] Project.Sys.AuditLogs.AuditLogAppService - 完成query8
+INFO  2019-02-02 16:05:01,725 [21   ] Project.Sys.AuditLogs.AuditLogAppService - 开始查询数量
+INFO  2019-02-02 16:05:01,826 [32   ] Project.Sys.AuditLogs.AuditLogAppService - 完成数量查询101
+INFO  2019-02-02 16:05:01,826 [32   ] Project.Sys.AuditLogs.AuditLogAppService - 开始查询结果
+INFO  2019-02-02 16:05:26,999 [32   ] Project.Sys.AuditLogs.AuditLogAppService - 完成结果查询25172
+INFO  2019-02-02 16:05:26,999 [32   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 25289.3082ms.
+INFO  2019-02-02 16:05:27,008 [32   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 16:05:27,014 [32   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application) in 25641.6656ms
+INFO  2019-02-02 16:05:27,014 [32   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 25753.454ms 200 application/json; charset=utf-8
+INFO  2019-02-02 16:15:02,549 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/AbpUserConfiguration/GetAll  
+INFO  2019-02-02 16:15:02,549 [49   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:15:02,549 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.4815ms 204 
+INFO  2019-02-02 16:15:02,564 [48   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/AbpUserConfiguration/GetAll application/json 
+INFO  2019-02-02 16:15:02,564 [48   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:15:02,566 [48   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 16:15:02,583 [48   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpUserConfiguration", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore)
+INFO  2019-02-02 16:15:02,583 [48   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:15:02,585 [48   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore) - Validation state: Valid
+INFO  2019-02-02 16:15:02,599 [48   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.JsonResult in 14.6595ms.
+INFO  2019-02-02 16:15:02,606 [50   ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 16:15:02,607 [50   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore) in 24.1698ms
+INFO  2019-02-02 16:15:02,608 [50   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 43.9494ms 200 application/json; charset=utf-8
+INFO  2019-02-02 16:15:02,636 [53   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/api/services/app/Session/GetCurrentLoginInformations  
+INFO  2019-02-02 16:15:02,636 [53   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:15:02,637 [53   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.3452ms 204 
+INFO  2019-02-02 16:15:02,641 [53   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/Session/GetCurrentLoginInformations application/json 
+INFO  2019-02-02 16:15:02,641 [53   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:15:02,642 [53   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 16:15:02,646 [53   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "GetCurrentLoginInformations", controller = "Session"}. Executing action MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application)
+INFO  2019-02-02 16:15:02,646 [53   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:15:02,650 [53   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application) - Validation state: Valid
+INFO  2019-02-02 16:15:02,657 [50   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 7.2027ms.
+INFO  2019-02-02 16:15:02,658 [50   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 16:15:02,659 [50   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application) in 12.1769ms
+INFO  2019-02-02 16:15:02,659 [50   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 17.5458ms 200 application/json; charset=utf-8
+INFO  2019-02-02 16:15:02,828 [53   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/api/services/app/AuditLog/GetIndex?ServiceName=&UserName=&SkipCount=0&MaxResultCount=10  
+INFO  2019-02-02 16:15:02,828 [53   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:15:02,828 [53   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.3547ms 204 
+INFO  2019-02-02 16:15:03,140 [48   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/AuditLog/GetIndex?ServiceName=&UserName=&SkipCount=0&MaxResultCount=10 application/json 
+INFO  2019-02-02 16:15:03,141 [48   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:15:03,141 [48   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 16:15:03,145 [48   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "GetIndex", controller = "AuditLog"}. Executing action MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application)
+INFO  2019-02-02 16:15:03,145 [48   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:15:03,150 [48   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application) with arguments (MyProject.Sys.AuditLogs.Dto.GetIndexInputDto) - Validation state: Valid
+INFO  2019-02-02 16:15:03,150 [48   ] Project.Sys.AuditLogs.AuditLogAppService - 开始获取日志列表
+INFO  2019-02-02 16:15:03,152 [48   ] Project.Sys.AuditLogs.AuditLogAppService - 完成query1
+INFO  2019-02-02 16:15:03,152 [48   ] Project.Sys.AuditLogs.AuditLogAppService - 开始查询数量
+INFO  2019-02-02 16:15:03,160 [48   ] Project.Sys.AuditLogs.AuditLogAppService - 完成数量查询7
+INFO  2019-02-02 16:15:03,160 [48   ] Project.Sys.AuditLogs.AuditLogAppService - 开始查询结果
+INFO  2019-02-02 16:15:03,188 [52   ] Project.Sys.AuditLogs.AuditLogAppService - 完成结果查询27
+INFO  2019-02-02 16:15:03,188 [52   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 37.6976ms.
+INFO  2019-02-02 16:15:03,197 [52   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 16:15:03,197 [52   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application) in 51.9403ms
+INFO  2019-02-02 16:15:03,198 [52   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 57.1717ms 200 application/json; charset=utf-8
+INFO  2019-02-02 16:25:17,429 [77   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/AbpUserConfiguration/GetAll  
+INFO  2019-02-02 16:25:17,429 [77   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:25:17,429 [77   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.6143ms 204 
+INFO  2019-02-02 16:25:17,453 [81   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/AbpUserConfiguration/GetAll application/json 
+INFO  2019-02-02 16:25:17,453 [81   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:25:17,454 [81   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 16:25:17,473 [83   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpUserConfiguration", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore)
+INFO  2019-02-02 16:25:17,474 [83   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:25:17,476 [83   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore) - Validation state: Valid
+INFO  2019-02-02 16:25:17,489 [83   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.JsonResult in 12.7308ms.
+INFO  2019-02-02 16:25:17,493 [81   ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 16:25:17,494 [81   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore) in 20.6068ms
+INFO  2019-02-02 16:25:17,495 [81   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 41.7742ms 200 application/json; charset=utf-8
+INFO  2019-02-02 16:25:17,520 [81   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/api/services/app/Session/GetCurrentLoginInformations  
+INFO  2019-02-02 16:25:17,520 [81   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:25:17,520 [81   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.6245ms 204 
+INFO  2019-02-02 16:25:17,532 [81   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/Session/GetCurrentLoginInformations application/json 
+INFO  2019-02-02 16:25:17,532 [81   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:25:17,533 [81   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 16:25:17,541 [81   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "GetCurrentLoginInformations", controller = "Session"}. Executing action MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application)
+INFO  2019-02-02 16:25:17,541 [81   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:25:17,544 [81   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application) - Validation state: Valid
+INFO  2019-02-02 16:25:17,553 [85   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 9.065ms.
+INFO  2019-02-02 16:25:17,557 [85   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 16:25:17,558 [85   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application) in 16.9023ms
+INFO  2019-02-02 16:25:17,558 [85   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 25.8176ms 200 application/json; charset=utf-8
+INFO  2019-02-02 16:25:17,773 [85   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/api/services/app/AuditLog/GetIndex?ServiceName=&UserName=&SkipCount=0&MaxResultCount=10  
+INFO  2019-02-02 16:25:17,773 [85   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:25:17,774 [85   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.3784ms 204 
+INFO  2019-02-02 16:25:17,946 [74   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/AuditLog/GetIndex?ServiceName=&UserName=&SkipCount=0&MaxResultCount=10 application/json 
+INFO  2019-02-02 16:25:17,947 [74   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:25:17,947 [74   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 16:25:17,961 [74   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "GetIndex", controller = "AuditLog"}. Executing action MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application)
+INFO  2019-02-02 16:25:17,961 [74   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:25:17,972 [74   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application) with arguments (MyProject.Sys.AuditLogs.Dto.GetIndexInputDto) - Validation state: Valid
+INFO  2019-02-02 16:25:17,972 [74   ] Project.Sys.AuditLogs.AuditLogAppService - 开始获取日志列表
+INFO  2019-02-02 16:25:17,975 [74   ] Project.Sys.AuditLogs.AuditLogAppService - 完成query2
+INFO  2019-02-02 16:25:17,975 [74   ] Project.Sys.AuditLogs.AuditLogAppService - 开始查询数量
+INFO  2019-02-02 16:25:17,980 [74   ] Project.Sys.AuditLogs.AuditLogAppService - 完成数量查询4
+INFO  2019-02-02 16:25:17,980 [74   ] Project.Sys.AuditLogs.AuditLogAppService - 开始查询结果
+INFO  2019-02-02 16:25:18,012 [84   ] Project.Sys.AuditLogs.AuditLogAppService - 完成结果查询32
+INFO  2019-02-02 16:25:18,012 [84   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 40.175ms.
+INFO  2019-02-02 16:25:18,021 [84   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 16:25:18,022 [84   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application) in 60.7356ms
+INFO  2019-02-02 16:25:18,022 [84   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 75.9131ms 200 application/json; charset=utf-8
+INFO  2019-02-02 16:26:44,487 [78   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/AbpUserConfiguration/GetAll  
+INFO  2019-02-02 16:26:44,488 [78   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:26:44,488 [78   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.3559ms 204 
+INFO  2019-02-02 16:26:44,501 [90   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/AbpUserConfiguration/GetAll application/json 
+INFO  2019-02-02 16:26:44,502 [90   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:26:44,502 [90   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 16:26:44,510 [90   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpUserConfiguration", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore)
+INFO  2019-02-02 16:26:44,510 [90   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:26:44,512 [90   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore) - Validation state: Valid
+INFO  2019-02-02 16:26:44,535 [90   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.JsonResult in 22.8784ms.
+INFO  2019-02-02 16:26:44,540 [90   ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 16:26:44,541 [90   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore) in 30.9894ms
+INFO  2019-02-02 16:26:44,542 [90   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 40.1817ms 200 application/json; charset=utf-8
+INFO  2019-02-02 16:26:44,555 [78   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/api/services/app/Session/GetCurrentLoginInformations  
+INFO  2019-02-02 16:26:44,555 [78   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:26:44,556 [78   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.6332ms 204 
+INFO  2019-02-02 16:26:44,565 [90   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/Session/GetCurrentLoginInformations application/json 
+INFO  2019-02-02 16:26:44,566 [90   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:26:44,567 [90   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 16:26:44,572 [90   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "GetCurrentLoginInformations", controller = "Session"}. Executing action MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application)
+INFO  2019-02-02 16:26:44,572 [90   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:26:44,616 [90   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application) - Validation state: Valid
+INFO  2019-02-02 16:26:44,620 [90   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3.6689ms.
+INFO  2019-02-02 16:26:44,621 [90   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 16:26:44,622 [90   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application) in 49.9496ms
+INFO  2019-02-02 16:26:44,622 [90   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 56.4306ms 200 application/json; charset=utf-8
+INFO  2019-02-02 16:26:44,846 [78   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/api/services/app/AuditLog/GetIndex?ServiceName=&UserName=&SkipCount=0&MaxResultCount=10  
+INFO  2019-02-02 16:26:44,847 [78   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:26:44,848 [78   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2.2838ms 204 
+INFO  2019-02-02 16:26:45,055 [78   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/AuditLog/GetIndex?ServiceName=&UserName=&SkipCount=0&MaxResultCount=10 application/json 
+INFO  2019-02-02 16:26:45,055 [78   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:26:45,056 [78   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 16:26:45,073 [78   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "GetIndex", controller = "AuditLog"}. Executing action MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application)
+INFO  2019-02-02 16:26:45,074 [78   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:26:45,080 [78   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application) with arguments (MyProject.Sys.AuditLogs.Dto.GetIndexInputDto) - Validation state: Valid
+INFO  2019-02-02 16:26:45,081 [78   ] Project.Sys.AuditLogs.AuditLogAppService - 开始获取日志列表
+INFO  2019-02-02 16:26:45,085 [78   ] Project.Sys.AuditLogs.AuditLogAppService - 完成query4
+INFO  2019-02-02 16:26:45,085 [78   ] Project.Sys.AuditLogs.AuditLogAppService - 开始查询数量
+INFO  2019-02-02 16:26:45,088 [78   ] Project.Sys.AuditLogs.AuditLogAppService - 完成数量查询3
+INFO  2019-02-02 16:26:45,089 [78   ] Project.Sys.AuditLogs.AuditLogAppService - 开始查询结果
+INFO  2019-02-02 16:26:45,124 [91   ] Project.Sys.AuditLogs.AuditLogAppService - 完成结果查询35
+INFO  2019-02-02 16:26:45,125 [91   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 43.8775ms.
+INFO  2019-02-02 16:26:45,137 [91   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 16:26:45,138 [91   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application) in 64.0845ms
+INFO  2019-02-02 16:26:45,138 [91   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 83.6002ms 200 application/json; charset=utf-8
+INFO  2019-02-02 16:37:32,096 [73   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/AbpUserConfiguration/GetAll  
+INFO  2019-02-02 16:37:32,097 [73   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:37:32,097 [73   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.5341ms 204 
+INFO  2019-02-02 16:37:32,122 [73   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/AbpUserConfiguration/GetAll application/json 
+INFO  2019-02-02 16:37:32,122 [73   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:37:32,122 [73   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 16:37:32,132 [73   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpUserConfiguration", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore)
+INFO  2019-02-02 16:37:32,132 [73   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:37:32,134 [73   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore) - Validation state: Valid
+INFO  2019-02-02 16:37:32,147 [73   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.JsonResult in 12.9904ms.
+INFO  2019-02-02 16:37:32,155 [72   ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 16:37:32,156 [72   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpUserConfigurationController.GetAll (Abp.AspNetCore) in 24.4511ms
+INFO  2019-02-02 16:37:32,157 [72   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 35.0708ms 200 application/json; charset=utf-8
+INFO  2019-02-02 16:37:32,181 [72   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/api/services/app/Session/GetCurrentLoginInformations  
+INFO  2019-02-02 16:37:32,182 [72   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:37:32,182 [72   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.3227ms 204 
+INFO  2019-02-02 16:37:32,196 [67   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/Session/GetCurrentLoginInformations application/json 
+INFO  2019-02-02 16:37:32,196 [67   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:37:32,197 [67   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 16:37:32,205 [67   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "GetCurrentLoginInformations", controller = "Session"}. Executing action MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application)
+INFO  2019-02-02 16:37:32,205 [67   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:37:32,211 [67   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application) - Validation state: Valid
+INFO  2019-02-02 16:37:32,222 [67   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 10.6698ms.
+INFO  2019-02-02 16:37:32,224 [67   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 16:37:32,224 [67   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Sessions.SessionAppService.GetCurrentLoginInformations (MyProject.Application) in 18.9558ms
+INFO  2019-02-02 16:37:32,225 [67   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 28.4278ms 200 application/json; charset=utf-8
+INFO  2019-02-02 16:37:32,484 [67   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/api/services/app/AuditLog/GetIndex?ServiceName=&UserName=&SkipCount=0&MaxResultCount=10  
+INFO  2019-02-02 16:37:32,484 [67   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:37:32,484 [67   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.713ms 204 
+INFO  2019-02-02 16:37:32,843 [73   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/AuditLog/GetIndex?ServiceName=&UserName=&SkipCount=0&MaxResultCount=10 application/json 
+INFO  2019-02-02 16:37:32,843 [73   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:37:32,844 [73   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 16:37:32,857 [73   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "GetIndex", controller = "AuditLog"}. Executing action MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application)
+INFO  2019-02-02 16:37:32,857 [73   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:37:32,868 [73   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application) with arguments (MyProject.Sys.AuditLogs.Dto.GetIndexInputDto) - Validation state: Valid
+INFO  2019-02-02 16:37:32,868 [73   ] Project.Sys.AuditLogs.AuditLogAppService - 开始获取日志列表
+INFO  2019-02-02 16:37:32,879 [73   ] Project.Sys.AuditLogs.AuditLogAppService - 完成query10
+INFO  2019-02-02 16:37:32,879 [73   ] Project.Sys.AuditLogs.AuditLogAppService - 开始查询数量
+INFO  2019-02-02 16:37:32,903 [67   ] Project.Sys.AuditLogs.AuditLogAppService - 完成数量查询23
+INFO  2019-02-02 16:37:32,903 [67   ] Project.Sys.AuditLogs.AuditLogAppService - 开始查询结果
+INFO  2019-02-02 16:37:32,963 [67   ] Project.Sys.AuditLogs.AuditLogAppService - 完成结果查询60
+INFO  2019-02-02 16:37:32,963 [67   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 95.6638ms.
+INFO  2019-02-02 16:37:32,973 [67   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 16:37:32,973 [67   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Sys.AuditLogs.AuditLogAppService.GetIndex (MyProject.Application) in 116.4907ms
+INFO  2019-02-02 16:37:32,974 [67   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 130.9444ms 200 application/json; charset=utf-8
+INFO  2019-02-02 16:38:13,569 [67   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 OPTIONS http://localhost:21021/api/services/app/LoginAttempt/GetIndex?Filter=&SkipCount=0&MaxResultCount=10  
+INFO  2019-02-02 16:38:13,569 [67   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:38:13,569 [67   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.3978ms 204 
+INFO  2019-02-02 16:38:13,664 [67   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/LoginAttempt/GetIndex?Filter=&SkipCount=0&MaxResultCount=10 application/json 
+INFO  2019-02-02 16:38:13,664 [67   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:38:13,665 [67   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-02-02 16:38:13,691 [67   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "GetIndex", controller = "LoginAttempt"}. Executing action MyProject.LoginAttempts.LoginAttemptAppService.GetIndex (MyProject.Application)
+INFO  2019-02-02 16:38:13,691 [67   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution successful.
+INFO  2019-02-02 16:38:13,962 [67   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.LoginAttempts.LoginAttemptAppService.GetIndex (MyProject.Application) with arguments (MyProject.Sys.LoginAttempts.Dto.GetIndexInputDto) - Validation state: Valid
+INFO  2019-02-02 16:38:14,094 [69   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.LoginAttempts.LoginAttemptAppService.GetIndex (MyProject.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 130.9381ms.
+INFO  2019-02-02 16:38:14,126 [69   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-02-02 16:38:14,131 [69   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.LoginAttempts.LoginAttemptAppService.GetIndex (MyProject.Application) in 439.8162ms
+INFO  2019-02-02 16:38:14,132 [69   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 467.9474ms 200 application/json; charset=utf-8

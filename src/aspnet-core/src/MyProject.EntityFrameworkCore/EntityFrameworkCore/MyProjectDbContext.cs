@@ -14,5 +14,18 @@ namespace MyProject.EntityFrameworkCore
             : base(options)
         {
         }
+
+        /// <summary>
+        /// 新增实体时设置修改时间修改人
+        /// </summary>
+        /// <param name="entityAsObj"></param>
+        /// <param name="userId"></param>
+        protected override void SetCreationAuditProperties(object entityAsObj, long? userId)
+        {
+            base.SetCreationAuditProperties(entityAsObj, userId);
+            base.SetModificationAuditProperties(entityAsObj, userId);
+        }
+
+
     }
 }
