@@ -9262,3 +9262,569 @@ INFO  2019-02-16 11:15:10,677 [6    ] soft.AspNetCore.Hosting.Internal.WebHost -
 INFO  2019-02-16 11:15:10,678 [6    ] NetCore.StaticFiles.StaticFileMiddleware - The file /favicon-16x16.png was not modified
 INFO  2019-02-16 11:15:10,679 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1.995ms 304 image/png
 INFO  2019-02-16 11:15:11,039 [19   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 508.1335ms 200 application/json;charset=utf-8
+DEBUG 2019-02-21 11:24:52,628 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-02-21 11:24:52,696 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+FATAL 2019-02-21 11:24:52,798 [1    ] Abp.AbpBootstrapper                      - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule ---> System.Exception: Could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule. ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at MyProject.Web.Host.Startup.MyProjectWebHostModule..ctor(IHostingEnvironment env) in D:\My\src\aspnet-core\src\MyProject.Web.Host\Startup\MyProjectWebHostModule.cs:line 22
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes)
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   --- End of inner exception stack trace ---
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.SingletonLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes) in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 103
+   at Abp.Modules.AbpModuleManager.LoadAllModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 74
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule ---> System.Exception: Could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule. ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at MyProject.Web.Host.Startup.MyProjectWebHostModule..ctor(IHostingEnvironment env) in D:\My\src\aspnet-core\src\MyProject.Web.Host\Startup\MyProjectWebHostModule.cs:line 22
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes)
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   --- End of inner exception stack trace ---
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.SingletonLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes) in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 103
+   at Abp.Modules.AbpModuleManager.LoadAllModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 74
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+FATAL 2019-02-21 11:24:52,824 [1    ] soft.AspNetCore.Hosting.Internal.WebHost - Application startup exception
+Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule ---> System.Exception: Could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule. ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at MyProject.Web.Host.Startup.MyProjectWebHostModule..ctor(IHostingEnvironment env) in D:\My\src\aspnet-core\src\MyProject.Web.Host\Startup\MyProjectWebHostModule.cs:line 22
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes)
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   --- End of inner exception stack trace ---
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.SingletonLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes) in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 103
+   at Abp.Modules.AbpModuleManager.LoadAllModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 74
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.InitializeAbp(IApplicationBuilder app) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 67
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.UseAbp(IApplicationBuilder app, Action`1 optionsAction) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 38
+   at MyProject.Web.Host.Startup.Startup.Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) in D:\My\src\aspnet-core\src\MyProject.Web.Host\Startup\Startup.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.BuildApplication()
+INFO  2019-02-21 11:24:53,352 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-02-21 11:24:53,544 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 192.7008ms 500 text/html; charset=utf-8
+INFO  2019-02-21 11:24:53,881 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/favicon.ico  
+INFO  2019-02-21 11:24:53,890 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 9.6888ms 500 text/html; charset=utf-8
+DEBUG 2019-02-21 11:27:06,204 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-02-21 11:27:06,240 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+FATAL 2019-02-21 11:27:06,296 [1    ] Abp.AbpBootstrapper                      - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule ---> System.Exception: Could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule. ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at MyProject.Web.Host.Startup.MyProjectWebHostModule..ctor(IHostingEnvironment env) in D:\My\src\aspnet-core\src\MyProject.Web.Host\Startup\MyProjectWebHostModule.cs:line 22
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes)
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   --- End of inner exception stack trace ---
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.SingletonLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes) in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 103
+   at Abp.Modules.AbpModuleManager.LoadAllModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 74
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule ---> System.Exception: Could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule. ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at MyProject.Web.Host.Startup.MyProjectWebHostModule..ctor(IHostingEnvironment env) in D:\My\src\aspnet-core\src\MyProject.Web.Host\Startup\MyProjectWebHostModule.cs:line 22
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes)
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   --- End of inner exception stack trace ---
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.SingletonLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes) in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 103
+   at Abp.Modules.AbpModuleManager.LoadAllModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 74
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+FATAL 2019-02-21 11:27:06,316 [1    ] soft.AspNetCore.Hosting.Internal.WebHost - Application startup exception
+Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule ---> System.Exception: Could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule. ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at MyProject.Web.Host.Startup.MyProjectWebHostModule..ctor(IHostingEnvironment env) in D:\My\src\aspnet-core\src\MyProject.Web.Host\Startup\MyProjectWebHostModule.cs:line 22
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes)
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   --- End of inner exception stack trace ---
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.SingletonLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes) in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 103
+   at Abp.Modules.AbpModuleManager.LoadAllModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 74
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.InitializeAbp(IApplicationBuilder app) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 67
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.UseAbp(IApplicationBuilder app, Action`1 optionsAction) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 38
+   at MyProject.Web.Host.Startup.Startup.Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) in D:\My\src\aspnet-core\src\MyProject.Web.Host\Startup\Startup.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.BuildApplication()
+INFO  2019-02-21 11:27:06,899 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-02-21 11:27:07,065 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 162.7867ms 500 text/html; charset=utf-8
+INFO  2019-02-21 11:27:07,262 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/favicon.ico  
+INFO  2019-02-21 11:27:07,273 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 10.5631ms 500 text/html; charset=utf-8
+DEBUG 2019-02-21 12:32:03,564 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-02-21 12:32:03,613 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2019-02-21 12:32:03,634 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.Web.Host.Startup.MyProjectWebHostModule, MyProject.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:32:03,638 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectWebCoreModule, MyProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:32:03,639 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectApplicationModule, MyProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:32:03,639 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectCoreModule, MyProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:32:03,640 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:32:03,640 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:32:03,640 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:32:03,641 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:32:03,641 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.EntityFrameworkCore.MyProjectEntityFrameworkModule, MyProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:32:03,642 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:32:03,642 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:32:03,642 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:32:03,642 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:32:03,643 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:32:03,643 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:32:03,644 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireAspNetCoreModule, Abp.HangFire.AspNetCore, Version=4.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:32:03,649 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2019-02-21 12:32:03,779 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-21 12:32:03,779 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-21 12:32:03,779 [1    ] o.Configuration.LanguageManagementConfig - Converted MyProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-21 12:32:03,779 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-21 12:32:04,134 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: MyProject.EntityFrameworkCore.MyProjectDbContext, MyProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:32:04,652 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-02-21 12:32:04,780 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-02-21 12:32:04,831 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-02-21 12:32:04,913 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: MyProject
+DEBUG 2019-02-21 12:32:04,945 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-02-21 12:32:04,986 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-02-21 12:32:05,045 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2019-02-21 12:32:05,046 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-02-21 12:32:05,056 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Users.Dto.CreateUserDto
+DEBUG 2019-02-21 12:32:05,058 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Users.Dto.UserDto
+DEBUG 2019-02-21 12:32:05,059 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Users.Dto.UserListDto
+DEBUG 2019-02-21 12:32:05,060 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.LoginAttempts.Dto.LoginAttemptShowIndexDto
+DEBUG 2019-02-21 12:32:05,060 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sys.OrganizationUnits.Dto.OrganizationUnitDto
+DEBUG 2019-02-21 12:32:05,060 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sys.OrganizationUnits.Dto.OrganizationUnitTreeDto
+DEBUG 2019-02-21 12:32:05,060 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-02-21 12:32:05,060 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-02-21 12:32:05,060 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.CreateRoleDto
+DEBUG 2019-02-21 12:32:05,060 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.PermissionDto
+DEBUG 2019-02-21 12:32:05,061 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.RoleDto
+DEBUG 2019-02-21 12:32:05,061 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.RoleEditDto
+DEBUG 2019-02-21 12:32:05,061 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-02-21 12:32:05,061 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.MultiTenancy.Dto.TenantDto
+INFO  2019-02-21 12:32:11,222 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-02-21 12:32:13,183 [15   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host)
+INFO  2019-02-21 12:32:13,749 [15   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host) - Validation state: Valid
+INFO  2019-02-21 12:32:13,758 [15   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 4.873ms.
+INFO  2019-02-21 12:32:14,130 [10   ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2019-02-21 12:32:14,146 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host) in 954.6081ms
+INFO  2019-02-21 12:32:14,230 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 3016.8051ms 302 
+INFO  2019-02-21 12:32:14,241 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2019-02-21 12:32:14,295 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 54.1305ms 200 text/html
+INFO  2019-02-21 12:32:14,324 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2019-02-21 12:32:14,330 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2019-02-21 12:32:14,331 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2019-02-21 12:32:14,331 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js  
+INFO  2019-02-21 12:32:14,334 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.swagger.js  
+INFO  2019-02-21 12:32:14,376 [15   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-standalone-preset.js was not modified
+INFO  2019-02-21 12:32:14,376 [10   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger/ui/abp.js was not modified
+INFO  2019-02-21 12:32:14,376 [14   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger/ui/abp.swagger.js was not modified
+INFO  2019-02-21 12:32:14,376 [6    ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-bundle.js was not modified
+INFO  2019-02-21 12:32:14,376 [12   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui.css was not modified
+INFO  2019-02-21 12:32:14,382 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 52.7818ms 304 application/javascript
+INFO  2019-02-21 12:32:14,382 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 58.0969ms 304 text/css
+INFO  2019-02-21 12:32:14,382 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 48.6858ms 304 application/javascript
+INFO  2019-02-21 12:32:14,382 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 51.36ms 304 application/javascript
+INFO  2019-02-21 12:32:14,382 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 51.6476ms 304 application/javascript
+INFO  2019-02-21 12:32:14,879 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2019-02-21 12:32:15,377 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 497.7031ms 200 application/json;charset=utf-8
+DEBUG 2019-02-21 12:45:32,005 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-02-21 12:45:32,038 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+FATAL 2019-02-21 12:45:32,114 [1    ] Abp.AbpBootstrapper                      - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule ---> System.Exception: Could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule. ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at MyProject.Web.Host.Startup.MyProjectWebHostModule..ctor(IHostingEnvironment env) in D:\My\src\aspnet-core\src\MyProject.Web.Host\Startup\MyProjectWebHostModule.cs:line 23
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes)
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   --- End of inner exception stack trace ---
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.SingletonLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes) in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 103
+   at Abp.Modules.AbpModuleManager.LoadAllModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 74
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule ---> System.Exception: Could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule. ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at MyProject.Web.Host.Startup.MyProjectWebHostModule..ctor(IHostingEnvironment env) in D:\My\src\aspnet-core\src\MyProject.Web.Host\Startup\MyProjectWebHostModule.cs:line 23
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes)
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   --- End of inner exception stack trace ---
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.SingletonLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes) in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 103
+   at Abp.Modules.AbpModuleManager.LoadAllModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 74
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+FATAL 2019-02-21 12:45:32,133 [1    ] soft.AspNetCore.Hosting.Internal.WebHost - Application startup exception
+Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule ---> System.Exception: Could not instantiate MyProject.Web.Host.Startup.MyProjectWebHostModule. ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at MyProject.Web.Host.Startup.MyProjectWebHostModule..ctor(IHostingEnvironment env) in D:\My\src\aspnet-core\src\MyProject.Web.Host\Startup\MyProjectWebHostModule.cs:line 23
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes)
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   --- End of inner exception stack trace ---
+   at Castle.Core.Internal.ReflectionUtil.Instantiate[TBase](Type subtypeofTBase, Object[] ctorArgs)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.SingletonLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Abp.Modules.AbpModuleManager.CreateModules(ICollection`1 moduleTypes, List`1 plugInModuleTypes) in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 103
+   at Abp.Modules.AbpModuleManager.LoadAllModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 74
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.InitializeAbp(IApplicationBuilder app) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 67
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.UseAbp(IApplicationBuilder app, Action`1 optionsAction) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 38
+   at MyProject.Web.Host.Startup.Startup.Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) in D:\My\src\aspnet-core\src\MyProject.Web.Host\Startup\Startup.cs:line 111
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.BuildApplication()
+INFO  2019-02-21 12:45:32,497 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-02-21 12:45:32,664 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 167.0166ms 500 text/html; charset=utf-8
+INFO  2019-02-21 12:45:32,917 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/favicon.ico  
+INFO  2019-02-21 12:45:32,928 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 11.1786ms 500 text/html; charset=utf-8
+DEBUG 2019-02-21 12:47:58,735 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-02-21 12:47:58,767 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2019-02-21 12:47:58,790 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.Web.Host.Startup.MyProjectWebHostModule, MyProject.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:47:58,796 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectWebCoreModule, MyProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:47:58,797 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectApplicationModule, MyProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:47:58,797 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectCoreModule, MyProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:47:58,797 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:47:58,798 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:47:58,798 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:47:58,799 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:47:58,799 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.EntityFrameworkCore.MyProjectEntityFrameworkModule, MyProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:47:58,799 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:47:58,799 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:47:58,800 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:47:58,800 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:47:58,800 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:47:58,800 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:47:58,800 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireAspNetCoreModule, Abp.HangFire.AspNetCore, Version=4.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:47:58,806 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2019-02-21 12:47:58,877 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-21 12:47:58,877 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-21 12:47:58,877 [1    ] o.Configuration.LanguageManagementConfig - Converted MyProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-21 12:47:58,877 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-21 12:47:59,209 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: MyProject.EntityFrameworkCore.MyProjectDbContext, MyProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:47:59,712 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-02-21 12:47:59,829 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-02-21 12:47:59,899 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-02-21 12:47:59,925 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: MyProject
+DEBUG 2019-02-21 12:47:59,956 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-02-21 12:47:59,963 [1    ] bp.Hangfire.HangfireBackgroundJobManager - Start background worker: Abp.Hangfire.HangfireBackgroundJobManager
+DEBUG 2019-02-21 12:48:00,028 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2019-02-21 12:48:00,028 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-02-21 12:48:00,034 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Users.Dto.CreateUserDto
+DEBUG 2019-02-21 12:48:00,035 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Users.Dto.UserDto
+DEBUG 2019-02-21 12:48:00,035 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Users.Dto.UserListDto
+DEBUG 2019-02-21 12:48:00,036 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.LoginAttempts.Dto.LoginAttemptShowIndexDto
+DEBUG 2019-02-21 12:48:00,036 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sys.OrganizationUnits.Dto.OrganizationUnitDto
+DEBUG 2019-02-21 12:48:00,037 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sys.OrganizationUnits.Dto.OrganizationUnitTreeDto
+DEBUG 2019-02-21 12:48:00,037 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-02-21 12:48:00,037 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-02-21 12:48:00,037 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.CreateRoleDto
+DEBUG 2019-02-21 12:48:00,037 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.PermissionDto
+DEBUG 2019-02-21 12:48:00,037 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.RoleDto
+DEBUG 2019-02-21 12:48:00,038 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.RoleEditDto
+DEBUG 2019-02-21 12:48:00,038 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-02-21 12:48:00,039 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.MultiTenancy.Dto.TenantDto
+INFO  2019-02-21 12:48:04,108 [1    ] fire.SqlServer.SqlServerObjectsInstaller - Start installing Hangfire SQL objects...
+INFO  2019-02-21 12:48:04,555 [1    ] fire.SqlServer.SqlServerObjectsInstaller - Hangfire SQL objects installed.
+INFO  2019-02-21 12:48:04,581 [1    ] Hangfire.BackgroundJobServer             - Starting Hangfire Server
+INFO  2019-02-21 12:48:04,586 [1    ] Hangfire.BackgroundJobServer             - Using job storage: 'SQL Server: localhost@MyProjectDb'
+INFO  2019-02-21 12:48:04,587 [1    ] Hangfire.BackgroundJobServer             - Using the following options for SQL Server job storage:
+INFO  2019-02-21 12:48:04,588 [1    ] Hangfire.BackgroundJobServer             -     Queue poll interval: 00:00:15.
+INFO  2019-02-21 12:48:04,588 [1    ] Hangfire.BackgroundJobServer             - Using the following options for Hangfire Server:
+INFO  2019-02-21 12:48:04,588 [1    ] Hangfire.BackgroundJobServer             -     Worker count: 20
+INFO  2019-02-21 12:48:04,589 [1    ] Hangfire.BackgroundJobServer             -     Listening queues: 'default'
+INFO  2019-02-21 12:48:04,589 [1    ] Hangfire.BackgroundJobServer             -     Shutdown timeout: 00:00:15
+INFO  2019-02-21 12:48:04,589 [1    ] Hangfire.BackgroundJobServer             -     Schedule polling interval: 00:00:15
+INFO  2019-02-21 12:48:05,645 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-02-21 12:48:07,186 [15   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host)
+INFO  2019-02-21 12:48:07,617 [15   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host) - Validation state: Valid
+INFO  2019-02-21 12:48:07,622 [15   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 3.2478ms.
+INFO  2019-02-21 12:48:07,918 [11   ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2019-02-21 12:48:07,941 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host) in 747.0159ms
+INFO  2019-02-21 12:48:08,043 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2397.035ms 302 
+INFO  2019-02-21 12:48:08,044 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2019-02-21 12:48:08,085 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 40.5894ms 200 text/html
+INFO  2019-02-21 12:48:08,098 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2019-02-21 12:48:08,106 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2019-02-21 12:48:08,106 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2019-02-21 12:48:08,140 [11   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui.css was not modified
+INFO  2019-02-21 12:48:08,140 [14   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-standalone-preset.js was not modified
+INFO  2019-02-21 12:48:08,140 [15   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-bundle.js was not modified
+INFO  2019-02-21 12:48:08,144 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 38.0752ms 304 application/javascript
+INFO  2019-02-21 12:48:08,144 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 38.7745ms 304 application/javascript
+INFO  2019-02-21 12:48:08,144 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 46.1985ms 304 text/css
+INFO  2019-02-21 12:48:08,356 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2019-02-21 12:48:08,905 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 548.8031ms 200 application/json;charset=utf-8
+DEBUG 2019-02-21 12:49:43,484 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-02-21 12:49:43,525 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2019-02-21 12:49:43,551 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.Web.Host.Startup.MyProjectWebHostModule, MyProject.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:49:43,558 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectWebCoreModule, MyProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:49:43,559 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectApplicationModule, MyProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:49:43,560 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectCoreModule, MyProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:49:43,561 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:49:43,561 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:49:43,562 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:49:43,562 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:49:43,563 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.EntityFrameworkCore.MyProjectEntityFrameworkModule, MyProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:49:43,563 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:49:43,563 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:49:43,564 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:49:43,564 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:49:43,564 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:49:43,564 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:49:43,564 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireAspNetCoreModule, Abp.HangFire.AspNetCore, Version=4.2.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:49:43,569 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2019-02-21 12:49:43,657 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-21 12:49:43,658 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-21 12:49:43,658 [1    ] o.Configuration.LanguageManagementConfig - Converted MyProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-21 12:49:43,658 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-21 12:49:44,031 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: MyProject.EntityFrameworkCore.MyProjectDbContext, MyProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-21 12:49:44,632 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-02-21 12:49:44,753 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-02-21 12:49:44,812 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-02-21 12:49:44,839 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: MyProject
+DEBUG 2019-02-21 12:49:44,878 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-02-21 12:49:44,884 [1    ] bp.Hangfire.HangfireBackgroundJobManager - Start background worker: Abp.Hangfire.HangfireBackgroundJobManager
+DEBUG 2019-02-21 12:49:44,951 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2019-02-21 12:49:44,952 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-02-21 12:49:44,965 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Users.Dto.CreateUserDto
+DEBUG 2019-02-21 12:49:44,968 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Users.Dto.UserDto
+DEBUG 2019-02-21 12:49:44,968 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Users.Dto.UserListDto
+DEBUG 2019-02-21 12:49:44,969 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.LoginAttempts.Dto.LoginAttemptShowIndexDto
+DEBUG 2019-02-21 12:49:44,969 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sys.OrganizationUnits.Dto.OrganizationUnitDto
+DEBUG 2019-02-21 12:49:44,969 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sys.OrganizationUnits.Dto.OrganizationUnitTreeDto
+DEBUG 2019-02-21 12:49:44,969 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-02-21 12:49:44,970 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-02-21 12:49:44,970 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.CreateRoleDto
+DEBUG 2019-02-21 12:49:44,970 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.PermissionDto
+DEBUG 2019-02-21 12:49:44,970 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.RoleDto
+DEBUG 2019-02-21 12:49:44,970 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.RoleEditDto
+DEBUG 2019-02-21 12:49:44,970 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-02-21 12:49:44,970 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.MultiTenancy.Dto.TenantDto
+INFO  2019-02-21 12:49:49,579 [1    ] fire.SqlServer.SqlServerObjectsInstaller - Start installing Hangfire SQL objects...
+INFO  2019-02-21 12:49:49,697 [1    ] fire.SqlServer.SqlServerObjectsInstaller - Hangfire SQL objects installed.
+INFO  2019-02-21 12:49:49,725 [1    ] Hangfire.BackgroundJobServer             - Starting Hangfire Server
+INFO  2019-02-21 12:49:49,729 [1    ] Hangfire.BackgroundJobServer             - Using job storage: 'SQL Server: localhost@MyProjectDb'
+INFO  2019-02-21 12:49:49,730 [1    ] Hangfire.BackgroundJobServer             - Using the following options for SQL Server job storage:
+INFO  2019-02-21 12:49:49,730 [1    ] Hangfire.BackgroundJobServer             -     Queue poll interval: 00:00:15.
+INFO  2019-02-21 12:49:49,730 [1    ] Hangfire.BackgroundJobServer             - Using the following options for Hangfire Server:
+INFO  2019-02-21 12:49:49,730 [1    ] Hangfire.BackgroundJobServer             -     Worker count: 20
+INFO  2019-02-21 12:49:49,731 [1    ] Hangfire.BackgroundJobServer             -     Listening queues: 'default'
+INFO  2019-02-21 12:49:49,731 [1    ] Hangfire.BackgroundJobServer             -     Shutdown timeout: 00:00:15
+INFO  2019-02-21 12:49:49,731 [1    ] Hangfire.BackgroundJobServer             -     Schedule polling interval: 00:00:15
+INFO  2019-02-21 12:49:50,688 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-02-21 12:49:52,366 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host)
+INFO  2019-02-21 12:49:52,859 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host) - Validation state: Valid
+INFO  2019-02-21 12:49:52,870 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 4.7932ms.
+INFO  2019-02-21 12:49:53,249 [6    ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2019-02-21 12:49:53,271 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host) in 897.5549ms
+INFO  2019-02-21 12:49:53,377 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2691.4876ms 302 
+INFO  2019-02-21 12:49:53,379 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2019-02-21 12:49:53,425 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 46.1424ms 200 text/html
+INFO  2019-02-21 12:49:53,445 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2019-02-21 12:49:53,445 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2019-02-21 12:49:53,448 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2019-02-21 12:49:53,483 [11   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui.css was not modified
+INFO  2019-02-21 12:49:53,483 [10   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-standalone-preset.js was not modified
+INFO  2019-02-21 12:49:53,483 [12   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-bundle.js was not modified
+INFO  2019-02-21 12:49:53,491 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 42.682ms 304 application/javascript
+INFO  2019-02-21 12:49:53,491 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 45.1334ms 304 text/css
+INFO  2019-02-21 12:49:53,491 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 45.9417ms 304 application/javascript
+INFO  2019-02-21 12:49:53,698 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2019-02-21 12:49:54,227 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 529.1018ms 200 application/json;charset=utf-8
+INFO  2019-02-21 12:49:54,793 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire  
+INFO  2019-02-21 12:49:55,465 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 672.2271ms 200 text/html
+INFO  2019-02-21 12:49:55,481 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/js1622  
+INFO  2019-02-21 12:49:55,481 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/css1622  
+INFO  2019-02-21 12:49:55,510 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 29.0168ms 200 text/css
+INFO  2019-02-21 12:49:55,541 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 60.4875ms 200 application/javascript
+INFO  2019-02-21 12:49:55,545 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/fonts/glyphicons-halflings-regular/woff2  
+INFO  2019-02-21 12:49:55,558 [12   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution failed.
+INFO  2019-02-21 12:49:55,558 [12   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-02-21 12:49:55,563 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 18.072ms 200 font/woff2
+INFO  2019-02-21 12:49:55,740 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/favicon.ico  
+INFO  2019-02-21 12:49:55,742 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2.0638ms 404 
+INFO  2019-02-21 12:49:57,734 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:21021/hangfire/stats application/x-www-form-urlencoded; charset=UTF-8 228
+INFO  2019-02-21 12:49:57,734 [10   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution failed.
+INFO  2019-02-21 12:49:57,735 [10   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-02-21 12:49:57,849 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 115.2553ms 200 application/json
+INFO  2019-02-21 12:49:58,054 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/retries  
+INFO  2019-02-21 12:49:58,108 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 54.5603ms 200 text/html
+INFO  2019-02-21 12:49:58,122 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/js1622  
+INFO  2019-02-21 12:49:58,122 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/css1622  
+INFO  2019-02-21 12:49:58,124 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2.2182ms 200 text/css
+INFO  2019-02-21 12:49:58,138 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 15.7925ms 200 application/javascript
+INFO  2019-02-21 12:49:58,162 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/fonts/glyphicons-halflings-regular/woff2  
+INFO  2019-02-21 12:49:58,162 [11   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution failed.
+INFO  2019-02-21 12:49:58,162 [11   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-02-21 12:49:58,164 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2.2332ms 200 font/woff2
+INFO  2019-02-21 12:49:58,770 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/jobs/enqueued  
+INFO  2019-02-21 12:49:58,796 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 26.0879ms 200 text/html
+INFO  2019-02-21 12:49:58,811 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/css1622  
+INFO  2019-02-21 12:49:58,811 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/js1622  
+INFO  2019-02-21 12:49:58,815 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 3.3465ms 200 text/css
+INFO  2019-02-21 12:49:58,823 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 12.1272ms 200 application/javascript
+INFO  2019-02-21 12:49:58,851 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/fonts/glyphicons-halflings-regular/woff2  
+INFO  2019-02-21 12:49:58,852 [12   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution failed.
+INFO  2019-02-21 12:49:58,852 [12   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-02-21 12:49:58,856 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 4.7806ms 200 font/woff2
+INFO  2019-02-21 12:49:59,417 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/  
+INFO  2019-02-21 12:49:59,423 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 6.8989ms 200 text/html
+INFO  2019-02-21 12:49:59,439 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/css1622  
+INFO  2019-02-21 12:49:59,439 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/js1622  
+INFO  2019-02-21 12:49:59,442 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2.8282ms 200 text/css
+INFO  2019-02-21 12:49:59,472 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 27.1869ms 200 application/javascript
+INFO  2019-02-21 12:49:59,510 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/fonts/glyphicons-halflings-regular/woff2  
+INFO  2019-02-21 12:49:59,510 [14   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution failed.
+INFO  2019-02-21 12:49:59,510 [14   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-02-21 12:49:59,512 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2.1017ms 200 font/woff2
+INFO  2019-02-21 12:50:00,344 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/retries  
+INFO  2019-02-21 12:50:00,351 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 6.4237ms 200 text/html
+INFO  2019-02-21 12:50:00,364 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/css1622  
+INFO  2019-02-21 12:50:00,364 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/js1622  
+INFO  2019-02-21 12:50:00,369 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 4.9173ms 200 text/css
+INFO  2019-02-21 12:50:00,380 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 15.9201ms 200 application/javascript
+INFO  2019-02-21 12:50:00,408 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/fonts/glyphicons-halflings-regular/woff2  
+INFO  2019-02-21 12:50:00,408 [6    ] pNetCore.Cors.Infrastructure.CorsService - Policy execution failed.
+INFO  2019-02-21 12:50:00,408 [6    ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-02-21 12:50:00,412 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 4.7664ms 200 font/woff2
+INFO  2019-02-21 12:50:00,893 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/recurring  
+INFO  2019-02-21 12:50:00,922 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 29.0153ms 200 text/html
+INFO  2019-02-21 12:50:00,934 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/css1622  
+INFO  2019-02-21 12:50:00,934 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/js1622  
+INFO  2019-02-21 12:50:00,937 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2.592ms 200 text/css
+INFO  2019-02-21 12:50:00,945 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 10.3774ms 200 application/javascript
+INFO  2019-02-21 12:50:00,978 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/fonts/glyphicons-halflings-regular/woff2  
+INFO  2019-02-21 12:50:00,978 [13   ] pNetCore.Cors.Infrastructure.CorsService - Policy execution failed.
+INFO  2019-02-21 12:50:00,979 [13   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-02-21 12:50:00,983 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 4.476ms 200 font/woff2
+INFO  2019-02-21 12:50:01,612 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/servers  
+INFO  2019-02-21 12:50:01,708 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 95.9711ms 200 text/html
+INFO  2019-02-21 12:50:01,723 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/css1622  
+INFO  2019-02-21 12:50:01,723 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/js1622  
+INFO  2019-02-21 12:50:01,725 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2.3122ms 200 text/css
+INFO  2019-02-21 12:50:01,735 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 12.1967ms 200 application/javascript
+INFO  2019-02-21 12:50:01,761 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/hangfire/fonts/glyphicons-halflings-regular/woff2  
+INFO  2019-02-21 12:50:01,761 [6    ] pNetCore.Cors.Infrastructure.CorsService - Policy execution failed.
+INFO  2019-02-21 12:50:01,761 [6    ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-02-21 12:50:01,764 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 3.1442ms 200 font/woff2

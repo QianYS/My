@@ -15,9 +15,12 @@ using Abp.Extensions;
 using MyProject.Authentication.JwtBearer;
 using MyProject.Configuration;
 using MyProject.Identity;
-
 using Abp.AspNetCore.SignalR.Hubs;
 using System.IO;
+using Hangfire;
+using Abp.Hangfire;
+using System.Runtime;
+using Abp.Modules;
 
 namespace MyProject.Web.Host.Startup
 {
@@ -87,6 +90,13 @@ namespace MyProject.Web.Host.Startup
                 options.IncludeXmlComments(commentsFile);
             });
 
+            //Hangfire
+            services.AddHangfire(config =>
+            {
+                config.UseSqlServerStorage(_appConfiguration.GetConnectionString("Default"));
+            });
+
+
             // Configure Abp and Dependency Injection
             return services.AddAbp<MyProjectWebHostModule>(
                 // Configure Log4Net logging
@@ -108,6 +118,14 @@ namespace MyProject.Web.Host.Startup
 
             app.UseAbpRequestLocalization();
 
+            app.UseHangfireServer();
+
+            app.UseHangfireDashboard();
+
+            app.UseHangfireDashboard("/hangfire", new DashboardOptions
+            {
+                Authorization = new[] { new AbpHangfireAuthorizationFilter("MyHangFireDashboardPermissionName") }
+            });
 
             app.UseSignalR(routes =>
             {

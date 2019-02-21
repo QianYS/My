@@ -12,6 +12,7 @@
     <Compile Remove="Migrations\20180927062408_test.cs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Hangfire.SqlServer" Version="1.6.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.3">
       <PrivateAssets>all</PrivateAssets>
