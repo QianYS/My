@@ -9185,3 +9185,80 @@ INFO  2019-02-02 16:38:14,094 [69   ] ore.Mvc.Internal.ControllerActionInvoker -
 INFO  2019-02-02 16:38:14,126 [69   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
 INFO  2019-02-02 16:38:14,131 [69   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.LoginAttempts.LoginAttemptAppService.GetIndex (MyProject.Application) in 439.8162ms
 INFO  2019-02-02 16:38:14,132 [69   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 467.9474ms 200 application/json; charset=utf-8
+DEBUG 2019-02-16 11:14:54,828 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-02-16 11:14:55,803 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-02-16 11:14:55,852 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.Web.Host.Startup.MyProjectWebHostModule, MyProject.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-16 11:14:55,856 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectWebCoreModule, MyProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-16 11:14:55,856 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectApplicationModule, MyProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-16 11:14:55,857 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectCoreModule, MyProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-16 11:14:55,857 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-16 11:14:55,857 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-16 11:14:55,858 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-16 11:14:55,858 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-16 11:14:55,859 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.EntityFrameworkCore.MyProjectEntityFrameworkModule, MyProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-16 11:14:55,859 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-16 11:14:55,859 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-16 11:14:55,860 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-16 11:14:55,860 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-16 11:14:55,860 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-16 11:14:55,861 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=3.8.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-16 11:14:55,870 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-02-16 11:14:56,025 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-16 11:14:56,025 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-16 11:14:56,025 [1    ] o.Configuration.LanguageManagementConfig - Converted MyProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-16 11:14:56,025 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-02-16 11:14:56,619 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: MyProject.EntityFrameworkCore.MyProjectDbContext, MyProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-02-16 11:14:57,270 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-02-16 11:14:57,460 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-02-16 11:14:57,528 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-02-16 11:14:57,562 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: MyProject
+DEBUG 2019-02-16 11:14:57,621 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-02-16 11:14:57,668 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-02-16 11:14:57,776 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2019-02-16 11:14:57,776 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-02-16 11:14:57,800 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Users.Dto.CreateUserDto
+DEBUG 2019-02-16 11:14:57,803 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Users.Dto.UserDto
+DEBUG 2019-02-16 11:14:57,804 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Users.Dto.UserListDto
+DEBUG 2019-02-16 11:14:57,807 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.LoginAttempts.Dto.LoginAttemptShowIndexDto
+DEBUG 2019-02-16 11:14:57,807 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sys.OrganizationUnits.Dto.OrganizationUnitDto
+DEBUG 2019-02-16 11:14:57,807 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sys.OrganizationUnits.Dto.OrganizationUnitTreeDto
+DEBUG 2019-02-16 11:14:57,808 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-02-16 11:14:57,808 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-02-16 11:14:57,808 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.CreateRoleDto
+DEBUG 2019-02-16 11:14:57,809 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.PermissionDto
+DEBUG 2019-02-16 11:14:57,809 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.RoleDto
+DEBUG 2019-02-16 11:14:57,810 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Roles.Dto.RoleEditDto
+DEBUG 2019-02-16 11:14:57,810 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-02-16 11:14:57,810 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.MultiTenancy.Dto.TenantDto
+INFO  2019-02-16 11:15:06,756 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-02-16 11:15:08,836 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host)
+INFO  2019-02-16 11:15:09,480 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host) - Validation state: Valid
+INFO  2019-02-16 11:15:09,487 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 3.211ms.
+INFO  2019-02-16 11:15:09,851 [10   ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2019-02-16 11:15:09,872 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action MyProject.Web.Host.Controllers.HomeController.Index (MyProject.Web.Host) in 1027.2099ms
+INFO  2019-02-16 11:15:09,969 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 3244.5432ms 302 
+INFO  2019-02-16 11:15:09,979 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2019-02-16 11:15:10,035 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 56.4559ms 200 text/html
+INFO  2019-02-16 11:15:10,070 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2019-02-16 11:15:10,088 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2019-02-16 11:15:10,088 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.swagger.js  
+INFO  2019-02-16 11:15:10,091 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2019-02-16 11:15:10,094 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js  
+INFO  2019-02-16 11:15:10,131 [10   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui.css was not modified
+INFO  2019-02-16 11:15:10,131 [14   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger/ui/abp.swagger.js was not modified
+INFO  2019-02-16 11:15:10,131 [7    ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger/ui/abp.js was not modified
+INFO  2019-02-16 11:15:10,131 [6    ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-bundle.js was not modified
+INFO  2019-02-16 11:15:10,131 [13   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-standalone-preset.js was not modified
+INFO  2019-02-16 11:15:10,137 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 46.5106ms 304 application/javascript
+INFO  2019-02-16 11:15:10,137 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 43.2245ms 304 application/javascript
+INFO  2019-02-16 11:15:10,137 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 67.4762ms 304 text/css
+INFO  2019-02-16 11:15:10,137 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 49.8604ms 304 application/javascript
+INFO  2019-02-16 11:15:10,138 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 51.776ms 304 application/javascript
+INFO  2019-02-16 11:15:10,531 [19   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2019-02-16 11:15:10,644 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/favicon-32x32.png  
+INFO  2019-02-16 11:15:10,666 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+INFO  2019-02-16 11:15:10,667 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 22.2475ms 200 image/png
+INFO  2019-02-16 11:15:10,677 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/favicon-16x16.png  
+INFO  2019-02-16 11:15:10,678 [6    ] NetCore.StaticFiles.StaticFileMiddleware - The file /favicon-16x16.png was not modified
+INFO  2019-02-16 11:15:10,679 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1.995ms 304 image/png
+INFO  2019-02-16 11:15:11,039 [19   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 508.1335ms 200 application/json;charset=utf-8
